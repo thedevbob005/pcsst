@@ -50,10 +50,10 @@
           <div class="stack stack-5">
             <div class="page-intro__meta">
               <span class="badge badge--brand">Release 0.2.0</span>
-              <nav class="pill-nav" aria-label="Documentation versions">
-                <a class="pill-nav__item is-active" href="./index.html">Latest docs</a>
-                <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
-                <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+              <nav class="pill-nav" aria-label="Release navigation">
+                <a class="pill-nav__item is-active" href="./index.html">Overview</a>
+                <a class="pill-nav__item" href="./changelog.html">Release notes</a>
+                <a class="pill-nav__item" href="./changelog.html#roadmap">Roadmap</a>
               </nav>
             </div>
 
@@ -92,61 +92,49 @@
             </div>
           </div>
 
-          <div class="app-shell page-hero overview-preview-shell">
-            <aside class="app-shell__sidebar stack stack-4">
-              <div class="stack stack-2">
-                <span class="badge badge--accent">PCSST UI</span>
-                <h2>Framework surface</h2>
-              </div>
-              <div class="tabs">
-                <a class="tab is-active" href="./library.html">Library</a>
-                <a class="tab" href="./themes.html">Themes</a>
-                <a class="tab" href="./changelog.html">Release</a>
-              </div>
-              <p class="muted">
-                The docs themselves run on PCSST components, layouts, and theme
-                tokens.
-              </p>
-            </aside>
-
-            <div class="app-shell__main stack stack-4">
-              <div class="toolbar">
-                <div class="toolbar__group">
-                  <span class="badge badge--highlight">Responsive tiers</span>
-                  <span class="badge">Guides</span>
-                </div>
-                <a class="button button--primary" href="./changelog.html">Release flow</a>
-              </div>
-
-              <div class="stat-strip">
-                <article class="stat-strip__item">
-                  <span class="metric__value">3</span>
-                  <span class="metric__label">Native themes</span>
-                </article>
-                <article class="stat-strip__item">
-                  <span class="metric__value">0</span>
-                  <span class="metric__label">Runtime deps</span>
-                </article>
-                <article class="stat-strip__item">
-                  <span class="metric__value">6</span>
-                  <span class="metric__label">Docs pages</span>
-                </article>
-              </div>
-
-              <div class="overview-kpi-grid">
-                <article class="kpi-card">
-                  <span class="metric__label">API direction</span>
-                  <strong class="metric__value">Readable</strong>
-                  <span class="kpi-card__trend">Human-readable classes over shorthand piles.</span>
-                </article>
-                <article class="kpi-card">
-                  <span class="metric__label">Release posture</span>
-                  <strong class="metric__value">Shippable</strong>
-                  <span class="kpi-card__trend">Build, verify, export, and package scripts included.</span>
-                </article>
-              </div>
+          <article class="card page-hero section-card overview-preview-card stack stack-4">
+            <div class="cluster justify-between align-start">
+              <span class="badge badge--accent">PCSST UI</span>
+              <span class="annotation">Zero-runtime docs surface</span>
             </div>
-          </div>
+
+            <div class="stack stack-3">
+              <h2 class="overview-preview-title">A calmer framework surface.</h2>
+              <p class="muted">
+                The docs run on the same tokens, layouts, and components the
+                library ships.
+              </p>
+            </div>
+
+            <div class="stat-strip overview-stat-strip">
+              <article class="stat-strip__item">
+                <span class="metric__value">3</span>
+                <span class="metric__label">Native themes</span>
+              </article>
+              <article class="stat-strip__item">
+                <span class="metric__value">0</span>
+                <span class="metric__label">Runtime deps</span>
+              </article>
+              <article class="stat-strip__item">
+                <span class="metric__value">6</span>
+                <span class="metric__label">Docs pages</span>
+              </article>
+            </div>
+
+            <div class="notice notice--accent overview-preview-focus">
+              <strong>Readable API. Shippable docs.</strong>
+              <span>
+                Human-readable classes, responsive tiers, zero runtime
+                dependencies, and release tooling included.
+              </span>
+            </div>
+
+            <div class="cluster overview-preview-links">
+              <a class="button button--primary" href="./library.html">Browse library</a>
+              <a class="button button--quiet" href="./themes.html">Themes</a>
+              <a class="button button--ghost" href="./changelog.html">Release notes</a>
+            </div>
+          </article>
         </div>
       </section>
 

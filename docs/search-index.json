@@ -59,7 +59,7 @@
     "section": "Release",
     "title": "Release automation",
     "summary": "CI verification, Pages deployment, and tag-based packaging/publishing.",
-    "url": "./changelog.html#foundation",
+    "url": "./changelog.html#automation",
     "keywords": ["ci", "pages", "publish", "package", "github actions"]
   }
 ]

@@ -218,35 +218,43 @@ body.docs-body {
   align-items: start;
 }
 
-.overview-preview-shell {
-  width: min(100%, 36rem);
+.overview-preview-card {
+  width: min(100%, 34rem);
   align-self: start;
   justify-self: end;
-  grid-template-columns: 1fr;
 }
 
-.overview-preview-shell .app-shell__sidebar,
-.overview-preview-shell .app-shell__main {
+.overview-preview-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.overview-preview-focus {
+  gap: var(--pc-space-2);
   padding: var(--pc-space-4);
+  border-radius: var(--pc-radius-lg);
 }
 
-.overview-preview-shell,
-.overview-preview-shell .app-shell__sidebar,
-.overview-preview-shell .app-shell__main,
-.overview-preview-shell .toolbar,
-.overview-preview-shell .stat-strip__item,
-.overview-preview-shell .kpi-card {
+.overview-preview-focus strong {
+  font-size: var(--pc-step-1);
+}
+
+.overview-preview-links {
+  --pc-cluster-gap: var(--pc-space-2);
+}
+
+.overview-preview-links .button {
   min-width: 0;
 }
 
-.overview-preview-shell .metric__value {
-  font-size: clamp(1.75rem, 3vw, 2.75rem);
-  overflow-wrap: anywhere;
+.overview-stat-strip,
+.overview-stat-strip .stat-strip__item {
+  min-width: 0;
 }
 
-.overview-kpi-grid {
-  display: grid;
-  gap: var(--pc-space-4);
+.overview-stat-strip .metric__value {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .theme-board,
@@ -449,19 +457,8 @@ body.docs-body {
 }
 
 @media (min-width: 80rem) {
-  .overview-preview-shell {
-    grid-template-columns: minmax(11rem, 13rem) minmax(0, 1fr);
-  }
-
-  .overview-preview-shell .app-shell__sidebar,
-  .overview-preview-shell .app-shell__main {
-    padding: var(--pc-space-5);
-  }
-}
-
-@media (min-width: 90rem) {
-  .overview-kpi-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .overview-preview-card {
+    width: min(100%, 36rem);
   }
 }
 
