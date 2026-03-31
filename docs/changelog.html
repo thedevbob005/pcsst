@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Track PCSST releases, automation, and roadmap."
+      content="Track PCSST releases, utility expansion, automation, and roadmap."
     />
     <title>PCSST Changelog</title>
     <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
@@ -56,11 +56,11 @@
                 <a class="pill-nav__item" href="./changelog.html#roadmap">Roadmap</a>
               </nav>
             </div>
-            <h1 class="headline">PCSST now has a release shape, not just a demo.</h1>
+            <h1 class="headline">PCSST now has a broader utility release, not just a starter surface.</h1>
             <p class="lead measure">
-              The framework release track now includes responsive utilities,
-              expanded docs, verification scripts, site export, packaging, and
-              GitHub automation for CI, Pages, and tagged releases.
+              `v0.3.0` adds CSS-only variants, richer spacing and sizing,
+              positioning, stronger flex and grid controls, container queries,
+              expanded docs, and the same verification and packaging flow.
             </p>
           </div>
         </section>
@@ -77,13 +77,18 @@
               </article>
               <article class="timeline__item">
                 <span class="timeline__marker" aria-hidden="true"></span>
-                <span class="timeline__meta">v0.2.0 Current</span>
+                <span class="timeline__meta">v0.2.0 Foundation</span>
                 <strong>Added responsive tier utilities, pill navs, toolbars, stat strips, timelines, progress, app shells, and multi-page docs.</strong>
               </article>
               <article class="timeline__item">
                 <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">v0.3.0 Current</span>
+                <strong>Introduces authored `hover:*`, `md:*`, `max-*`, and `@*` variants plus broader spacing, sizing, position, and flex/grid utilities without adding tooling.</strong>
+              </article>
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
                 <span class="timeline__meta">Next</span>
-                <strong>Move toward stronger accessibility primitives, more data-display components, and a formal plugin ecosystem around PCSST.</strong>
+                <strong>Move toward stronger accessibility primitives, denser data-display components, and deeper form-state coverage inside the CSS API.</strong>
               </article>
             </div>
           </article>
@@ -92,10 +97,10 @@
             <p class="eyebrow">What changed in the preview</p>
             <h2>New in the current docs set.</h2>
             <ul class="list-check">
-              <li>Responsive tiers: <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code> utilities.</li>
-              <li>Expanded components: pill nav, toolbar, stat strip, timeline, progress, command card, kpi card, app shell.</li>
-              <li>New docs pages: getting started, themes, showcase, and changelog.</li>
-              <li>Automation: verify, site export, package scripts plus GitHub workflows.</li>
+              <li>Authored variants: <code>hover:*</code>, <code>focus-visible:*</code>, <code>dark:*</code>, <code>sm/md/lg/xl/2xl:*</code>, <code>max-*</code>, and <code>@*</code>.</li>
+              <li>Expanded utilities: margin, sizing, positioning, display, overflow, color, transition, and richer flex/grid controls.</li>
+              <li>Docs refresh: overview, guide, and library reference now demonstrate the `v0.3.0` API directly.</li>
+              <li>Automation baseline stays intact: verify, site export, package scripts plus GitHub workflows.</li>
             </ul>
           </article>
         </section>
@@ -157,17 +162,17 @@ package.py</code>
             <article class="card section-card stack stack-3">
               <span class="badge badge--accent">Accessibility</span>
               <h3>Stronger state primitives</h3>
-              <p class="muted">Focus rings are already present; next up are skip links, disclosure patterns, and richer form validation affordances.</p>
+              <p class="muted">Next up are more form-state variants, disclosure patterns, and accessibility helpers that build on the new authored variant system.</p>
             </article>
             <article class="card section-card stack stack-3">
               <span class="badge badge--brand">Data UI</span>
               <h3>Tables, filters, and density controls</h3>
-              <p class="muted">Expand PCSST toward dashboards with better data display containers and compact layout modes.</p>
+              <p class="muted">Expand PCSST toward dashboards with stronger table, filter, and compact-layout primitives now that sizing and positioning helpers exist.</p>
             </article>
             <article class="card section-card stack stack-3">
-              <span class="badge badge--highlight">Tooling</span>
-              <h3>Packaging polish</h3>
-              <p class="muted">Version manifests, docs search, and release note generation are the next logical automation layers.</p>
+              <span class="badge badge--highlight">API depth</span>
+              <h3>More utility coverage</h3>
+              <p class="muted">Continue expanding the CSS surface with data-oriented helpers, more container variants, and additional stateful utility families.</p>
             </article>
           </div>
         </section>
@@ -176,7 +181,7 @@ package.py</code>
 
     <footer class="footer-shell">
       <div class="shell cluster justify-between align-start">
-        <p class="muted">PCSST now has a repeatable release path.</p>
+        <p class="muted">PCSST `v0.3.0` broadens the framework without adding a generator layer.</p>
         <div class="cluster cluster-tight">
           <a class="button button--ghost" href="./getting-started.html">Guide</a>
           <a class="button button--ghost" href="./library.html">Library</a>

@@ -1,6 +1,6 @@
 {
   "name": "pcsst",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "PCSST (Perfect CSS Treasure) is a pure CSS framework with tokens, utilities, components, and a documentation site.",
   "license": "MIT",
   "repository": {

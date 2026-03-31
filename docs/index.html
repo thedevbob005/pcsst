@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="PCSST is a pure CSS framework with readable utilities, responsive tiers, components, theming, and a documentation UI."
+      content="PCSST is a pure CSS framework with readable utilities, authored variants, container queries, components, theming, and a documentation UI."
     />
     <title>PCSST | Perfect CSS Treasure</title>
     <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
@@ -49,7 +49,7 @@
         <div class="shell-wide split-layout align-center gap-5 overview-hero">
           <div class="stack stack-5">
             <div class="page-intro__meta">
-              <span class="badge badge--brand">Release 0.2.0</span>
+              <span class="badge badge--brand">Release 0.3.0</span>
               <nav class="pill-nav" aria-label="Release navigation">
                 <a class="pill-nav__item is-active" href="./index.html">Overview</a>
                 <a class="pill-nav__item" href="./changelog.html">Release notes</a>
@@ -61,9 +61,9 @@
               <p class="eyebrow">Pure CSS, readable by humans</p>
               <h1 class="display">PCSST builds systems, not utility soup.</h1>
               <p class="lead measure">
-                Perfect CSS Treasure combines tokens, responsive utility tiers,
-                layout objects, UI primitives, and release-ready docs in one
-                plain CSS framework.
+                Perfect CSS Treasure combines tokens, authored variant syntax,
+                layout objects, richer utilities, and release-ready docs in one
+                plain CSS framework with no generator layer.
               </p>
             </div>
 
@@ -124,8 +124,8 @@
             <div class="notice notice--accent overview-preview-focus">
               <strong>Readable API. Shippable docs.</strong>
               <span>
-                Human-readable classes, responsive tiers, zero runtime
-                dependencies, and release tooling included.
+                Human-readable classes, CSS-only variants, container queries,
+                zero runtime dependencies, and release tooling included.
               </span>
             </div>
 
@@ -144,9 +144,9 @@
             <p class="eyebrow">Framework direction</p>
             <h2>PCSST is opinionated about clarity.</h2>
             <p class="lead measure">
-              Utility classes are descriptive, responsive behavior is built into
-              named tiers, and the framework includes actual interface pieces so
-              teams can move from prototype to system language faster.
+              Utility classes stay readable, variants are authored directly in
+              CSS, and the framework includes actual interface pieces so teams
+              can move from prototype to system language faster.
             </p>
           </div>
 
@@ -162,28 +162,29 @@
             </article>
             <article class="card feature-panel">
               <div class="feature-icon">02</div>
-              <h3>Responsive tiers</h3>
+              <h3>Variant system</h3>
               <p class="muted">
-                PCSST now ships <code>.sm-*</code>, <code>.md-*</code>, and
-                <code>.lg-*</code> variants for common layout, spacing, and
-                alignment changes.
+                Use literal class tokens like <code>hover:bg-accent-soft</code>,
+                <code>md:grid-cols-4</code>, <code>max-lg:flex-col</code>, and
+                <code>@md:grid-cols-2</code> without introducing tooling.
               </p>
             </article>
             <article class="card feature-panel">
               <div class="feature-icon">03</div>
+              <h3>Expanded utilities</h3>
+              <p class="muted">
+                Margin, sizing, positioning, display, richer flex/grid controls,
+                stateful color utilities, and responsive wrappers are now part
+                of the stock PCSST surface.
+              </p>
+            </article>
+            <article class="card feature-panel">
+              <div class="feature-icon">04</div>
               <h3>Docs as product UI</h3>
               <p class="muted">
                 The documentation site is not an afterthought. It uses pill
                 navs, toolbars, command cards, app shells, and themed previews
                 from the library itself.
-              </p>
-            </article>
-            <article class="card feature-panel">
-              <div class="feature-icon">04</div>
-              <h3>Release automation</h3>
-              <p class="muted">
-                CI verification, GitHub Pages deployment, and tag-based package
-                release workflows are part of the repository baseline.
               </p>
             </article>
           </div>
@@ -194,27 +195,27 @@
         <div class="shell compare-grid">
           <article class="card release-note stack stack-4">
             <p class="eyebrow">What ships now</p>
-            <h2 class="headline">A fuller first release surface.</h2>
+            <h2 class="headline">v0.3.0 pushes PCSST into a broader utility release.</h2>
             <ul class="feature-list">
               <li>
                 <span class="feature-list__icon">A</span>
                 <div class="stack stack-2">
-                  <strong>Tokens and themes</strong>
-                  <span class="muted">Treasure, Reef, and Midnight all use the same component markup.</span>
+                  <strong>CSS-only variants</strong>
+                  <span class="muted">State, dark, responsive, range, and container-query tokens are authored directly in the stylesheet.</span>
                 </div>
               </li>
               <li>
                 <span class="feature-list__icon">B</span>
                 <div class="stack stack-2">
-                  <strong>Core UI primitives</strong>
-                  <span class="muted">Buttons, cards, notices, tabs, toolbars, command cards, timelines, progress bars, and app shells.</span>
+                  <strong>Broader utility coverage</strong>
+                  <span class="muted">Spacing, sizing, margin, positioning, display, flex, grid, overflow, color, and transition helpers are now first-class.</span>
                 </div>
               </li>
               <li>
                 <span class="feature-list__icon">C</span>
                 <div class="stack stack-2">
                   <strong>Version-aware docs</strong>
-                  <span class="muted">Guides, library reference, themes, showcase pages, and changelog pages all share the same docs chrome.</span>
+                  <span class="muted">Guides, library reference, themes, showcase pages, and changelog pages now teach the `v0.3.0` API directly.</span>
                 </div>
               </li>
             </ul>
@@ -246,7 +247,7 @@ python3 scripts/package.py</code>
             <a class="card section-card" href="./getting-started.html">
               <span class="badge badge--accent">Guides</span>
               <h3>Getting started</h3>
-              <p class="muted">Install, compose your first section, and understand the responsive tier model.</p>
+              <p class="muted">Install the stylesheet, compose a first section, and learn the authored variant model.</p>
             </a>
             <a class="card section-card" href="./library.html">
               <span class="badge badge--brand">Reference</span>
@@ -284,7 +285,7 @@ python3 scripts/package.py</code>
           <strong>PCSST</strong>
           <p class="muted measure">
             Perfect CSS Treasure is a pure CSS framework with a real docs site,
-            responsive tiers, theme support, and release automation.
+            authored variants, theme support, and release automation.
           </p>
         </div>
         <div class="cluster cluster-tight">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Browse the PCSST CSS framework API: tokens, layouts, responsive tiers, utilities, components, and patterns."
+      content="Browse the PCSST CSS framework API: tokens, layouts, authored variants, utilities, components, and patterns."
     />
     <title>PCSST Library</title>
     <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
@@ -55,7 +55,8 @@
             <a href="#get-started">Get started</a>
             <a href="#tokens">Tokens</a>
             <a href="#layouts">Layouts</a>
-            <a href="#responsive">Responsive tiers</a>
+            <a href="#responsive">Responsive</a>
+            <a href="#variants">Variants</a>
             <a href="#utilities">Utilities</a>
             <a href="#components">Components</a>
             <a href="#forms">Forms</a>
@@ -63,7 +64,7 @@
           </nav>
           <div class="notice notice--accent">
             <strong>Current docs</strong>
-            <span>Latest preview with responsive tier utilities and expanded component primitives.</span>
+            <span>`v0.3.0` adds CSS-only variants, container queries, and a broader core utility surface.</span>
           </div>
         </aside>
 
@@ -81,8 +82,8 @@
               <h1 class="headline">Add one stylesheet. Compose with design language.</h1>
               <p class="lead measure">
                 PCSST gives you named layout objects, readable utilities,
-                responsive tiers, and interface primitives designed to work
-                together.
+                authored variant tokens, and interface primitives designed to
+                work together without a generator step.
               </p>
             </div>
 
@@ -96,8 +97,11 @@
 &lt;section class="shell section stack stack-5"&gt;
   &lt;span class="badge badge--brand"&gt;New&lt;/span&gt;
   &lt;h1 class="display"&gt;Perfect CSS Treasure&lt;/h1&gt;
-  &lt;p class="lead"&gt;Readable CSS for products, prototypes, and docs.&lt;/p&gt;
-  &lt;div class="cluster md-cluster-wide"&gt;
+  &lt;p class="lead max-w-measure"&gt;Readable CSS for products, prototypes, and docs.&lt;/p&gt;
+  &lt;div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4"&gt;
+    &lt;article class="card hover:shadow-md transition-transform hover:translate-y-neg-1"&gt;Variants&lt;/article&gt;
+  &lt;/div&gt;
+  &lt;div class="cluster md:justify-between md:items-center"&gt;
     &lt;a class="button button--primary" href="#"&gt;Try PCSST&lt;/a&gt;
     &lt;a class="button button--ghost" href="#"&gt;View API&lt;/a&gt;
   &lt;/div&gt;
@@ -210,22 +214,25 @@
           </section>
 
           <section id="responsive" class="card section-card stack stack-4 rail-card">
-            <p class="eyebrow">Responsive tiers</p>
-            <h2>Use <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code> classes for common breakpoint changes.</h2>
+            <p class="eyebrow">Responsive</p>
+            <h2>Use literal breakpoint tokens like <code>md:grid-cols-3</code> and <code>max-lg:flex-col</code>.</h2>
             <p class="muted">
-              PCSST keeps responsive behavior readable instead of burying it in
-              cryptic class chains.
+              PCSST keeps responsive behavior readable without hiding it behind
+              tooling. `v0.3.0` adds authored breakpoint and range variants,
+              while the older <code>.sm-*</code>, <code>.md-*</code>, and
+              <code>.lg-*</code> helpers remain available.
             </p>
             <div class="preview-grid">
               <div class="component-preview stack stack-4">
-                <div class="grid md-grid-3 gap-4">
-                  <div class="surface-2 pad-4">Grid item one</div>
-                  <div class="surface-2 pad-4">Grid item two</div>
-                  <div class="surface-2 pad-4">Grid item three</div>
+                <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4 max-lg:grid-cols-2">
+                  <div class="surface-2 p-4">Grid item one</div>
+                  <div class="surface-2 p-4">Grid item two</div>
+                  <div class="surface-2 p-4">Grid item three</div>
+                  <div class="surface-2 p-4">Grid item four</div>
                 </div>
-                <div class="cluster md-justify-between md-align-center">
-                  <span class="badge badge--highlight">md-justify-between</span>
-                  <span class="muted">Cluster actions split after the medium breakpoint.</span>
+                <div class="cluster md:justify-between md:items-center max-md:flex-col">
+                  <span class="badge badge--highlight">md:justify-between</span>
+                  <span class="muted">The same cluster can split at <code>md</code> and collapse below <code>md</code>.</span>
                 </div>
               </div>
               <div class="code-card">
@@ -233,10 +240,10 @@
                   Copy
                 </button>
                 <div class="code-block">
-                  <code>&lt;div class="grid md-grid-3 gap-4"&gt;...&lt;/div&gt;
-&lt;div class="cluster md-justify-between md-align-center"&gt;...&lt;/div&gt;
+                  <code>&lt;div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4 max-lg:grid-cols-2"&gt;...&lt;/div&gt;
+&lt;div class="cluster md:justify-between md:items-center max-md:flex-col"&gt;...&lt;/div&gt;
 &lt;section class="shell md-shell-wide lg-shell-wide"&gt;...&lt;/section&gt;
-&lt;div class="pad-4 md-pad-6 lg-pad-7"&gt;...&lt;/div&gt;</code>
+&lt;div class="p-4 md:p-6 xl:p-7"&gt;...&lt;/div&gt;</code>
                 </div>
               </div>
             </div>
@@ -244,26 +251,94 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Tier</th>
+                    <th>Token</th>
                     <th>Examples</th>
                     <th>Intent</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Small</td>
-                    <td><code>.sm-grid-2</code>, <code>.sm-pad-5</code></td>
-                    <td>Early layout promotion for tablets or wider phones.</td>
+                    <td>Viewport breakpoints</td>
+                    <td><code>sm:*</code>, <code>md:*</code>, <code>lg:*</code>, <code>xl:*</code>, <code>2xl:*</code></td>
+                    <td>Promote layout, density, and sizing as the viewport expands.</td>
                   </tr>
                   <tr>
-                    <td>Medium</td>
-                    <td><code>.md-grid-3</code>, <code>.md-shell-wide</code></td>
-                    <td>Main breakpoint for dashboard, docs, and landing layouts.</td>
+                    <td>Range targeting</td>
+                    <td><code>max-md:*</code>, <code>max-lg:*</code>, <code>max-xl:*</code></td>
+                    <td>Constrain utilities to a breakpoint ceiling without custom media rules.</td>
                   </tr>
                   <tr>
-                    <td>Large</td>
-                    <td><code>.lg-grid-4</code>, <code>.lg-pad-7</code></td>
-                    <td>Expand density and spacing for wide workspaces.</td>
+                    <td>Compatibility tiers</td>
+                    <td><code>.sm-grid-2</code>, <code>.md-grid-3</code>, <code>.lg-pad-7</code></td>
+                    <td>Preserve the original PCSST tier helpers for existing markup.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="variants" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Variants</p>
+            <h2>State, dark, and container-query variants are authored directly in CSS.</h2>
+            <p class="muted">
+              Write the class token literally in markup. PCSST targets exact
+              class names like <code>hover:bg-accent-soft</code>,
+              <code>focus-visible:outline-highlight</code>,
+              <code>dark:bg-panel-inverse</code>, and
+              <code>@md:grid-cols-2</code> with plain selectors.
+            </p>
+            <div class="preview-grid">
+              <div class="component-preview stack stack-4">
+                <div class="@container card p-4">
+                  <div class="grid gap-4 @md:grid-cols-2">
+                    <button class="button button--ghost hover:bg-accent-soft hover:text-accent focus-visible:outline-2 focus-visible:outline-highlight focus-visible:outline-offset-2" type="button">
+                      Hover and focus
+                    </button>
+                    <div data-pcsst-theme="midnight" class="card dark:bg-panel-inverse dark:text-page p-4">
+                      Midnight scoped dark variant
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="code-card">
+                <button class="button button--quiet copy-button" type="button" data-copy>
+                  Copy
+                </button>
+                <div class="code-block">
+                  <code>&lt;button class="hover:bg-accent-soft hover:text-accent focus-visible:outline-2 focus-visible:outline-highlight focus-visible:outline-offset-2"&gt;...&lt;/button&gt;
+
+&lt;div data-pcsst-theme="midnight" class="dark:bg-panel-inverse dark:text-page"&gt;...&lt;/div&gt;
+
+&lt;div class="@container"&gt;
+  &lt;div class="grid gap-4 @md:grid-cols-2 @max-md:grid-cols-1"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code>
+                </div>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Family</th>
+                    <th>Examples</th>
+                    <th>Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>State</td>
+                    <td><code>hover:bg-accent-soft</code>, <code>focus:border-accent</code>, <code>disabled:opacity-50</code></td>
+                    <td>Handle interaction states without leaving the utility layer.</td>
+                  </tr>
+                  <tr>
+                    <td>Dark</td>
+                    <td><code>dark:bg-panel-inverse</code>, <code>dark:text-page</code></td>
+                    <td>Scope overrides to <code>data-pcsst-theme="midnight"</code> using the same markup.</td>
+                  </tr>
+                  <tr>
+                    <td>Container</td>
+                    <td><code>@container</code>, <code>@md:grid-cols-2</code>, <code>@max-lg:flex-col</code></td>
+                    <td>Adapt components to the size of their parent instead of the whole viewport.</td>
                   </tr>
                 </tbody>
               </table>
@@ -272,7 +347,7 @@
 
           <section id="utilities" class="card section-card stack stack-4 rail-card">
             <p class="eyebrow">Utilities</p>
-            <h2>Utilities stay descriptive and system-oriented.</h2>
+            <h2>Utilities now cover the core layout and state surface, not just spacing trim.</h2>
             <div class="table-wrap">
               <table class="table">
                 <thead>
@@ -285,23 +360,33 @@
                 <tbody>
                   <tr>
                     <td>Type</td>
-                    <td><code>.display</code>, <code>.lead</code>, <code>.eyebrow</code></td>
-                    <td>Fast hierarchy with a consistent voice.</td>
+                    <td><code>.display</code>, <code>.text-lg</code>, <code>.font-mono</code>, <code>.tracking-wide</code></td>
+                    <td>Fast hierarchy, text sizing, and type voice without custom selectors.</td>
                   </tr>
                   <tr>
-                    <td>Surface</td>
-                    <td><code>.surface-1</code>, <code>.surface-inverse</code></td>
-                    <td>Named container treatments for panels, overlays, and callouts.</td>
+                    <td>Color and surface</td>
+                    <td><code>.surface-1</code>, <code>.bg-panel</code>, <code>.text-danger</code>, <code>.border-accent</code></td>
+                    <td>Named surfaces plus utility-grade background, text, and border control.</td>
                   </tr>
                   <tr>
                     <td>Space</td>
-                    <td><code>.pad-5</code>, <code>.pad-y-4</code>, <code>.gap-3</code></td>
-                    <td>Targeted spacing when layout objects are not enough.</td>
+                    <td><code>.p-5</code>, <code>.mx-auto</code>, <code>.gap-4</code>, <code>.pad-y-4</code></td>
+                    <td>Targeted spacing when layout objects are not enough, with legacy aliases intact.</td>
                   </tr>
                   <tr>
-                    <td>Text</td>
-                    <td><code>.center</code>, <code>.text-left</code>, <code>.muted</code></td>
-                    <td>Simple alignment and hierarchy control without long selector chains.</td>
+                    <td>Sizing and position</td>
+                    <td><code>.w-full</code>, <code>.max-w-measure</code>, <code>.relative</code>, <code>.top-4</code></td>
+                    <td>Size, place, and anchor UI elements without dropping to bespoke CSS.</td>
+                  </tr>
+                  <tr>
+                    <td>Flex and grid</td>
+                    <td><code>.flex</code>, <code>.items-center</code>, <code>.grid-cols-4</code>, <code>.col-span-2</code></td>
+                    <td>Move beyond layout objects when a component needs direct flex or grid control.</td>
+                  </tr>
+                  <tr>
+                    <td>Motion and state</td>
+                    <td><code>.transition-transform</code>, <code>.hover:shadow-md</code>, <code>.focus-visible:outline-2</code></td>
+                    <td>Add interaction affordances with stock classes instead of custom one-off selectors.</td>
                   </tr>
                 </tbody>
               </table>
@@ -446,7 +531,7 @@
 
     <footer class="footer-shell">
       <div class="shell cluster justify-between align-start">
-        <p class="muted">PCSST library reference for the expanded first release.</p>
+        <p class="muted">PCSST library reference for the `v0.3.0` utility and variant release.</p>
         <div class="cluster cluster-tight">
           <a class="button button--ghost" href="./getting-started.html">Guides</a>
           <a class="button button--ghost" href="./themes.html">Themes</a>

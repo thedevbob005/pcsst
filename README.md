@@ -6,7 +6,8 @@ It is a pure CSS framework that combines:
 
 - design tokens through CSS custom properties
 - readable layout and spacing utilities
-- responsive utility tiers
+- authored state, responsive, and container-query variants
+- richer sizing, margin, positioning, and flex/grid utilities
 - ready-to-use interface components
 - theme support without a build step
 - a documentation site with its own visual identity
@@ -40,7 +41,12 @@ It is a pure CSS framework that combines:
   <span class="badge badge--accent">PCSST</span>
   <h1 class="display">Human-readable CSS for teams.</h1>
   <p class="lead">Build layouts, components, and themes with plain CSS.</p>
-  <div class="cluster md-cluster-wide">
+  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="card hover:shadow-md transition-transform hover:translate-y-neg-1">
+      CSS-only variants
+    </article>
+  </div>
+  <div class="cluster md:justify-between md:items-center">
     <a class="button button--primary" href="#">Launch</a>
     <a class="button button--ghost" href="#">Read docs</a>
   </div>

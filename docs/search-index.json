@@ -2,30 +2,37 @@
   {
     "section": "Overview",
     "title": "PCSST overview",
-    "summary": "Project positioning, release surface, docs map, and framework direction.",
+    "summary": "Project positioning, release surface, docs map, and the v0.3.0 utility expansion.",
     "url": "./index.html",
-    "keywords": ["overview", "framework", "release", "direction", "components"]
+    "keywords": ["overview", "framework", "release", "variants", "utilities"]
   },
   {
     "section": "Guide",
     "title": "Getting started",
-    "summary": "Install the stylesheet, compose a first section, and learn the responsive tier model.",
+    "summary": "Install the stylesheet, compose a first section, and learn the authored variant model.",
     "url": "./getting-started.html",
-    "keywords": ["guide", "install", "responsive", "build", "workflow"]
+    "keywords": ["guide", "install", "variants", "responsive", "container queries", "workflow"]
   },
   {
     "section": "Reference",
     "title": "Library reference",
-    "summary": "Tokens, layouts, utilities, components, forms, and patterns.",
+    "summary": "Tokens, layouts, responsive variants, utilities, components, forms, and patterns.",
     "url": "./library.html",
-    "keywords": ["reference", "library", "tokens", "utilities", "patterns"]
+    "keywords": ["reference", "library", "tokens", "utilities", "variants", "patterns"]
   },
   {
     "section": "Reference",
-    "title": "Responsive tiers",
-    "summary": "Use sm, md, and lg utilities for readable breakpoint changes.",
+    "title": "Responsive API",
+    "summary": "Use sm/md/lg/xl/2xl, max-* ranges, and compatibility tier helpers for readable breakpoint changes.",
     "url": "./library.html#responsive",
-    "keywords": ["responsive", "sm", "md", "lg", "breakpoints", "grid"]
+    "keywords": ["responsive", "sm", "md", "lg", "xl", "2xl", "max", "breakpoints"]
+  },
+  {
+    "section": "Reference",
+    "title": "Variant system",
+    "summary": "Use hover, focus-visible, dark, and container-query variants as literal class tokens in markup.",
+    "url": "./library.html#variants",
+    "keywords": ["variants", "hover", "focus", "dark", "container", "@container"]
   },
   {
     "section": "Reference",
@@ -51,14 +58,14 @@
   {
     "section": "Release",
     "title": "Changelog",
-    "summary": "Release history, automation coverage, and roadmap.",
+    "summary": "Release history, v0.3.0 utility expansion, automation coverage, and roadmap.",
     "url": "./changelog.html",
-    "keywords": ["changelog", "release", "roadmap", "automation", "workflows"]
+    "keywords": ["changelog", "release", "roadmap", "automation", "v0.3.0"]
   },
   {
     "section": "Release",
     "title": "Release automation",
-    "summary": "CI verification, Pages deployment, and tag-based packaging/publishing.",
+    "summary": "CI verification, Pages deployment, and tag-based packaging or publishing.",
     "url": "./changelog.html#automation",
     "keywords": ["ci", "pages", "publish", "package", "github actions"]
   }
