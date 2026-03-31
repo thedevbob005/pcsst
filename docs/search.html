@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Search PCSST documentation pages and sections."
+    />
+    <title>PCSST Search</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="shell stack stack-6">
+        <section class="card page-hero section-card stack stack-5">
+          <div class="page-intro">
+            <div class="page-intro__meta">
+              <span class="badge badge--accent">Search</span>
+              <nav class="pill-nav" aria-label="Documentation versions">
+                <a class="pill-nav__item" href="./index.html">Latest docs</a>
+                <a class="pill-nav__item is-active" href="./search.html">Search</a>
+                <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+              </nav>
+            </div>
+            <h1 class="headline">Search the PCSST docs.</h1>
+            <p class="lead measure">
+              Use keywords like <code>responsive</code>, <code>timeline</code>,
+              <code>theme</code>, or <code>release</code>. Keyboard shortcut:
+              <code>Ctrl/Cmd + K</code>.
+            </p>
+          </div>
+
+          <form class="field" role="search">
+            <label class="label" for="doc-search">Docs query</label>
+            <input
+              id="doc-search"
+              class="input"
+              type="search"
+              placeholder="Search PCSST docs"
+              data-doc-search
+              autocomplete="off"
+            />
+          </form>
+          <p class="annotation" data-search-count>Loading docs entries…</p>
+        </section>
+
+        <section class="search-results" data-search-results></section>
+      </div>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <p class="muted">Search is static and local to the docs bundle.</p>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./getting-started.html">Guide</a>
+          <a class="button button--ghost" href="./library.html">Library</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

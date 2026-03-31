@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Learn the PCSST theme system: built-in palettes, runtime switching, and custom CSS variable overrides."
+    />
+    <title>PCSST Themes</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="shell stack stack-6">
+        <section class="card page-hero section-card stack stack-5">
+          <div class="page-intro">
+            <div class="page-intro__meta">
+              <span class="badge badge--highlight">Theme system</span>
+              <nav class="pill-nav" aria-label="Documentation versions">
+                <a class="pill-nav__item is-active" href="./themes.html">Latest</a>
+                <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
+                <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+              </nav>
+            </div>
+            <h1 class="headline">PCSST themes are runtime CSS variables, not a separate build step.</h1>
+            <p class="lead measure">
+              Switch the framework voice by changing <code>data-pcsst-theme</code>
+              or overriding tokens directly. The markup stays the same.
+            </p>
+          </div>
+
+          <div class="chip-row">
+            <button class="button button--ghost" type="button" data-theme-switch="treasure">
+              Treasure
+            </button>
+            <button class="button button--ghost" type="button" data-theme-switch="reef">
+              Reef
+            </button>
+            <button class="button button--ghost" type="button" data-theme-switch="midnight">
+              Midnight
+            </button>
+          </div>
+        </section>
+
+        <section class="theme-preview-grid">
+          <article data-pcsst-theme="treasure" class="card theme-board stack stack-4">
+            <span class="badge badge--brand">Treasure</span>
+            <h2>Warm editorial default</h2>
+            <p class="muted">
+              Treasure is the default palette: parchment surfaces, teal accents,
+              and a rust brand note for product marketing and docs.
+            </p>
+            <div class="stat-strip">
+              <article class="stat-strip__item">
+                <span class="metric__value">Warm</span>
+                <span class="metric__label">Mood</span>
+              </article>
+              <article class="stat-strip__item">
+                <span class="metric__value">Docs</span>
+                <span class="metric__label">Best fit</span>
+              </article>
+            </div>
+          </article>
+
+          <article data-pcsst-theme="reef" class="card theme-board stack stack-4">
+            <span class="badge badge--accent">Reef</span>
+            <h2>Calmer product surface</h2>
+            <p class="muted">
+              Reef cools the palette down while preserving the same spacing,
+              typography, and component behavior.
+            </p>
+            <div class="stat-strip">
+              <article class="stat-strip__item">
+                <span class="metric__value">Soft</span>
+                <span class="metric__label">Mood</span>
+              </article>
+              <article class="stat-strip__item">
+                <span class="metric__value">Apps</span>
+                <span class="metric__label">Best fit</span>
+              </article>
+            </div>
+          </article>
+
+          <article data-pcsst-theme="midnight" class="card theme-board stack stack-4">
+            <span class="badge badge--highlight">Midnight</span>
+            <h2>Dark operational mode</h2>
+            <p class="muted">
+              Midnight flips the same components into a darker control-room tone
+              suited for dashboards and dense interfaces.
+            </p>
+            <div class="stat-strip">
+              <article class="stat-strip__item">
+                <span class="metric__value">Dark</span>
+                <span class="metric__label">Mood</span>
+              </article>
+              <article class="stat-strip__item">
+                <span class="metric__value">Ops</span>
+                <span class="metric__label">Best fit</span>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="compare-grid">
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">Scoped theme usage</p>
+            <h2>Apply themes to a subtree.</h2>
+            <div class="code-block">
+              <code>&lt;main data-pcsst-theme="midnight"&gt;
+  &lt;div class="app-shell"&gt;...&lt;/div&gt;
+&lt;/main&gt;</code>
+            </div>
+            <p class="muted">
+              Use this when one application area should diverge from the page
+              shell without changing all surrounding content.
+            </p>
+          </article>
+
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">Custom theme authoring</p>
+            <h2>Override tokens directly.</h2>
+            <div class="code-block">
+              <code>[data-pcsst-theme="orchid"] {
+  --pc-color-page: #fcf6f7;
+  --pc-color-panel: #fffdfd;
+  --pc-color-ink: #2e2433;
+  --pc-color-accent: #176b86;
+  --pc-color-brand: #d56472;
+  --pc-color-highlight: #c5a035;
+}</code>
+            </div>
+            <p class="muted">
+              The framework components pick up the new voice automatically
+              because they resolve through PCSST variables.
+            </p>
+          </article>
+        </section>
+
+        <section class="card section-card stack stack-4">
+          <p class="eyebrow">Live surface preview</p>
+          <h2>The same app shell works across themes.</h2>
+          <div class="showcase-grid">
+            <div data-pcsst-theme="treasure" class="app-shell">
+              <aside class="app-shell__sidebar stack stack-3">
+                <span class="badge badge--brand">Treasure</span>
+                <div class="tabs">
+                  <a class="tab is-active" href="#">Content</a>
+                  <a class="tab" href="#">Tokens</a>
+                </div>
+              </aside>
+              <div class="app-shell__main stack stack-4">
+                <div class="toolbar">
+                  <div class="toolbar__group">
+                    <span class="badge badge--accent">Editor</span>
+                  </div>
+                  <a class="button button--quiet" href="#">Preview</a>
+                </div>
+                <div class="progress" style="--pc-progress: 64%;">
+                  <span class="progress__bar"></span>
+                </div>
+              </div>
+            </div>
+
+            <div data-pcsst-theme="midnight" class="app-shell">
+              <aside class="app-shell__sidebar stack stack-3">
+                <span class="badge badge--accent">Midnight</span>
+                <div class="tabs">
+                  <a class="tab is-active" href="#">Deploy</a>
+                  <a class="tab" href="#">Metrics</a>
+                </div>
+              </aside>
+              <div class="app-shell__main stack stack-4">
+                <div class="toolbar">
+                  <div class="toolbar__group">
+                    <span class="badge badge--highlight">Ops</span>
+                  </div>
+                  <a class="button button--quiet" href="#">Inspect</a>
+                </div>
+                <div class="progress" style="--pc-progress: 82%;">
+                  <span class="progress__bar"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <p class="muted">Themes are token overrides. The markup stays stable.</p>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./library.html#tokens">Token reference</a>
+          <a class="button button--ghost" href="./showcase.html">Showcase</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

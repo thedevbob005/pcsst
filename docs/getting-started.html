@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Start using PCSST: install the stylesheet, compose your first layout, understand responsive tiers, and run the docs workflow."
+    />
+    <title>PCSST Getting Started</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="shell stack stack-6">
+        <section class="card page-hero section-card stack stack-5">
+          <div class="page-intro">
+            <div class="page-intro__meta">
+              <span class="badge badge--accent">Guide</span>
+              <nav class="pill-nav" aria-label="Documentation versions">
+                <a class="pill-nav__item is-active" href="./getting-started.html">Latest</a>
+                <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
+                <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+              </nav>
+            </div>
+            <h1 class="headline">Get PCSST running in one short loop.</h1>
+            <p class="lead measure">
+              The framework is just CSS. The surrounding repository gives you
+              a dev server, build flow, verification, site export, and release
+              packaging without pulling in extra dependencies.
+            </p>
+          </div>
+
+          <div class="showcase-grid">
+            <article class="command-card">
+              <div class="command-card__bar">
+                <strong>Framework commands</strong>
+                <span class="annotation">Local workflow</span>
+              </div>
+              <div class="command-card__body">
+                <code>python3 scripts/build.py
+python3 scripts/verify.py
+python3 scripts/dev.py
+python3 scripts/export_site.py</code>
+              </div>
+            </article>
+
+            <article class="card card--brand">
+              <div class="stack stack-3">
+                <span class="badge badge--brand">Repository shape</span>
+                <ul class="list-check">
+                  <li><code>src/pcsst.css</code> is the authoring source.</li>
+                  <li><code>dist/</code> holds built distributables.</li>
+                  <li><code>docs/</code> is the product-style docs site.</li>
+                  <li><code>scripts/</code> contains build, verify, export, and package tools.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="compare-grid">
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">1. Install the stylesheet</p>
+            <h2>Start with one CSS import.</h2>
+            <div class="code-block">
+              <code>&lt;link rel="stylesheet" href="dist/pcsst.css" /&gt;</code>
+            </div>
+            <p class="muted">
+              PCSST is designed to be consumed directly. There is no compiler
+              requirement for the framework itself.
+            </p>
+          </article>
+
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">2. Compose your first section</p>
+            <h2>Use named layout primitives before touching one-off utilities.</h2>
+            <div class="code-block">
+              <code>&lt;section class="shell section stack stack-5"&gt;
+  &lt;span class="badge badge--accent"&gt;PCSST&lt;/span&gt;
+  &lt;h1 class="display"&gt;Ship UI with plain CSS.&lt;/h1&gt;
+  &lt;p class="lead"&gt;Tokens, layouts, and components in one layer.&lt;/p&gt;
+  &lt;div class="cluster"&gt;
+    &lt;a class="button button--primary" href="#"&gt;Launch&lt;/a&gt;
+    &lt;a class="button button--ghost" href="#"&gt;Read docs&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code>
+            </div>
+          </article>
+        </section>
+
+        <section class="card section-card stack stack-4">
+          <p class="eyebrow">3. Learn the responsive tier model</p>
+          <h2>Breakpoints stay readable.</h2>
+          <p class="muted">
+            Treat the base classes as mobile-first. Promote layouts and spacing
+            with <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code>
+            modifiers when the interface needs to expand.
+          </p>
+          <div class="preview-grid">
+            <div class="component-preview stack stack-4">
+              <div class="grid md-grid-3 gap-4">
+                <div class="surface-2 pad-4">Ship tokens</div>
+                <div class="surface-2 pad-4">Document patterns</div>
+                <div class="surface-2 pad-4">Automate release</div>
+              </div>
+              <div class="cluster md-justify-between md-align-center">
+                <span class="badge badge--highlight">Responsive example</span>
+                <a class="button button--quiet" href="./library.html#responsive">Reference table</a>
+              </div>
+            </div>
+            <div class="code-card">
+              <button class="button button--quiet copy-button" type="button" data-copy>
+                Copy
+              </button>
+              <div class="code-block">
+                <code>&lt;div class="grid md-grid-3 gap-4"&gt;
+  &lt;div class="surface-2 pad-4"&gt;Ship tokens&lt;/div&gt;
+  &lt;div class="surface-2 pad-4"&gt;Document patterns&lt;/div&gt;
+  &lt;div class="surface-2 pad-4"&gt;Automate release&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="cluster md-justify-between md-align-center"&gt;...&lt;/div&gt;
+&lt;section class="shell md-shell-wide lg-shell-wide"&gt;...&lt;/section&gt;</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="feature-grid">
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">4. Move into product surfaces</p>
+            <h2>Start with components, not blank divs.</h2>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-list__icon">1</span>
+                <div class="stack stack-2">
+                  <strong>Use <code>.toolbar</code> for action clusters.</strong>
+                  <span class="muted">Toolbars give filters, actions, and metadata a shared surface.</span>
+                </div>
+              </li>
+              <li>
+                <span class="feature-list__icon">2</span>
+                <div class="stack stack-2">
+                  <strong>Use <code>.stat-strip</code> and <code>.kpi-card</code> for metrics.</strong>
+                  <span class="muted">They handle grouping, borders, and density in one step.</span>
+                </div>
+              </li>
+              <li>
+                <span class="feature-list__icon">3</span>
+                <div class="stack stack-2">
+                  <strong>Use <code>.app-shell</code> for docs and dashboards.</strong>
+                  <span class="muted">A sidebar and main surface arrive with consistent spacing and depth.</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">5. Run the repo loop</p>
+            <h2>Build, verify, export, package.</h2>
+            <div class="timeline">
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">Build</span>
+                <strong>Generate <code>dist/pcsst.css</code> and <code>dist/pcsst.min.css</code>.</strong>
+              </article>
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">Verify</span>
+                <strong>Compile Python tools and validate docs references.</strong>
+              </article>
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">Export</span>
+                <strong>Stage a GitHub Pages-ready static site in <code>site/</code>.</strong>
+              </article>
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">Package</span>
+                <strong>Create a release archive in <code>releases/</code>.</strong>
+              </article>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <p class="muted">Start with the guide, then move into the library reference and theme docs.</p>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./library.html">Library</a>
+          <a class="button button--ghost" href="./themes.html">Themes</a>
+          <a class="button button--ghost" href="./changelog.html">Changelog</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

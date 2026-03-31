@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="See themed PCSST page sections and UI patterns in context."
+    />
+    <title>PCSST Showcase</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="shell stack stack-6">
+        <section class="card page-hero section-card stack stack-4">
+          <div class="page-intro">
+            <div class="page-intro__meta">
+              <span class="badge badge--accent">Showcase</span>
+              <nav class="pill-nav" aria-label="Documentation versions">
+                <a class="pill-nav__item is-active" href="./showcase.html">Latest</a>
+                <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
+                <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+              </nav>
+            </div>
+            <h1 class="headline">The framework should look like it belongs to itself.</h1>
+            <p class="lead measure">
+              These examples use the same PCSST classes documented in the
+              library. Each one demonstrates a different tone and product
+              surface without changing the framework primitives.
+            </p>
+          </div>
+        </section>
+
+        <div class="showcase-stack">
+          <section class="showcase-frame card stack stack-5">
+            <div class="cluster justify-between align-start">
+              <div class="stack stack-2">
+                <p class="eyebrow">Theme preview</p>
+                <h2>Treasure marketing hero</h2>
+              </div>
+              <span class="badge badge--brand">Treasure</span>
+            </div>
+            <div class="theme-preview surface-1 pad-6 stack stack-5">
+              <div class="split-layout align-center">
+                <div class="stack stack-4">
+                  <span class="badge badge--accent">Launch collection</span>
+                  <h3 class="display">Craft a product surface in one stylesheet.</h3>
+                  <p class="lead">
+                    PCSST balances expressive UI with readable markup so the
+                    implementation layer does not rot after the launch week.
+                  </p>
+                  <div class="cluster">
+                    <a class="button button--primary" href="#">Explore patterns</a>
+                    <a class="button button--ghost" href="#">Read spec</a>
+                  </div>
+                </div>
+                <div class="card card--accent">
+                  <div class="stat-strip">
+                    <article class="stat-strip__item">
+                      <span class="metric__value">86%</span>
+                      <span class="metric__label">Prototype coverage</span>
+                    </article>
+                    <article class="stat-strip__item">
+                      <span class="metric__value">14</span>
+                      <span class="metric__label">Core patterns</span>
+                    </article>
+                  </div>
+                  <div class="notice notice--brand">
+                    <strong>Framework note</strong>
+                    <span>Hero copy, stats, and CTA all rely on the stock PCSST API.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="showcase-frame card stack stack-5">
+            <div class="cluster justify-between align-start">
+              <div class="stack stack-2">
+                <p class="eyebrow">Theme preview</p>
+                <h2>Midnight operations dashboard</h2>
+              </div>
+              <span class="badge badge--highlight">Midnight</span>
+            </div>
+            <div data-pcsst-theme="midnight" class="theme-preview surface-1 pad-6 stack stack-5">
+              <div class="toolbar">
+                <div class="toolbar__group">
+                  <span class="badge badge--accent">Operations</span>
+                  <span class="badge">Deploy</span>
+                </div>
+                <div class="toolbar__group">
+                  <a class="button button--primary" href="#">Ship</a>
+                  <a class="button button--quiet" href="#">Rollback</a>
+                </div>
+              </div>
+              <div class="grid md-grid-3 gap-4">
+                <article class="kpi-card">
+                  <span class="metric__value">99.98%</span>
+                  <span class="metric__label">Uptime</span>
+                  <span class="kpi-card__trend">Healthy over the last 7 days</span>
+                </article>
+                <article class="kpi-card">
+                  <span class="metric__value">7m</span>
+                  <span class="metric__label">Median build</span>
+                  <span class="kpi-card__trend">-14% versus last week</span>
+                </article>
+                <article class="kpi-card">
+                  <span class="metric__value">12</span>
+                  <span class="metric__label">Open incidents</span>
+                  <span class="kpi-card__trend">3 critical, 9 routine</span>
+                </article>
+              </div>
+              <div class="grid md-grid-2 gap-4">
+                <article class="card">
+                  <div class="tabs">
+                    <a class="tab is-active" href="#">Traffic</a>
+                    <a class="tab" href="#">Latency</a>
+                    <a class="tab" href="#">Errors</a>
+                  </div>
+                  <div class="progress" style="--pc-progress: 82%;">
+                    <span class="progress__bar"></span>
+                  </div>
+                  <p class="muted">
+                    Theme variables cascade into cards, tabs, and buttons without
+                    touching the markup.
+                  </p>
+                </article>
+                <article class="notice notice--success">
+                  <strong>Deploy complete</strong>
+                  <span>Production is healthy and post-release checks passed.</span>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="showcase-frame card stack stack-5">
+            <div class="cluster justify-between align-start">
+              <div class="stack stack-2">
+                <p class="eyebrow">Theme preview</p>
+                <h2>Reef mobile flow</h2>
+              </div>
+              <span class="badge badge--accent">Reef</span>
+            </div>
+            <div data-pcsst-theme="reef" class="theme-preview pad-5 surface-1">
+              <div class="device-shell">
+                <div class="device-shell__bar">Mobile checkout</div>
+                <div class="pad-5 stack stack-4">
+                  <div class="stack stack-2">
+                    <span class="badge badge--brand">Saved 18%</span>
+                    <h3>Reef-inspired subscription card</h3>
+                    <p class="muted">
+                      The same PCSST controls adapt to a calmer palette without
+                      changing component classes.
+                    </p>
+                  </div>
+                  <label class="field">
+                    <span class="label">Email</span>
+                    <input class="input" type="email" placeholder="captain@pcsst.dev" />
+                  </label>
+                  <label class="field">
+                    <span class="label">Plan</span>
+                    <select class="select">
+                      <option>Navigator</option>
+                      <option>Fleet</option>
+                    </select>
+                  </label>
+                  <button class="button button--primary" type="button">Continue</button>
+                  <div class="notice notice--accent">
+                    <strong>Tip</strong>
+                    <span>Reef is useful when the brand needs a softer tone than Treasure.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="showcase-frame card stack stack-5">
+            <div class="cluster justify-between align-start">
+              <div class="stack stack-2">
+                <p class="eyebrow">Pattern preview</p>
+                <h2>Docs workspace shell</h2>
+              </div>
+              <span class="badge">App shell</span>
+            </div>
+            <div class="app-shell">
+              <aside class="app-shell__sidebar stack stack-4">
+                <span class="badge badge--brand">Workspace</span>
+                <div class="pill-nav" aria-label="Docs workspace pages">
+                  <a class="pill-nav__item is-active" href="#">Overview</a>
+                  <a class="pill-nav__item" href="#">Tokens</a>
+                  <a class="pill-nav__item" href="#">Release</a>
+                </div>
+              </aside>
+              <div class="app-shell__main stack stack-4">
+                <div class="toolbar">
+                  <div class="toolbar__group">
+                    <span class="badge badge--highlight">Docs team</span>
+                    <span class="badge">Preview</span>
+                  </div>
+                  <a class="button button--primary" href="./library.html">Open reference</a>
+                </div>
+                <div class="stat-strip">
+                  <article class="stat-strip__item">
+                    <span class="metric__value">6</span>
+                    <span class="metric__label">Pages</span>
+                  </article>
+                  <article class="stat-strip__item">
+                    <span class="metric__value">3</span>
+                    <span class="metric__label">Themes</span>
+                  </article>
+                  <article class="stat-strip__item">
+                    <span class="metric__value">3</span>
+                    <span class="metric__label">Workflows</span>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <p class="muted">Showcase pages built entirely from the PCSST framework itself.</p>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./themes.html">Themes</a>
+          <a class="button button--ghost" href="./library.html">Library</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

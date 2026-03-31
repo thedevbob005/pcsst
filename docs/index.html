@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PCSST is a pure CSS framework with readable utilities, responsive tiers, components, theming, and a documentation UI."
+    />
+    <title>PCSST | Perfect CSS Treasure</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section">
+        <div class="shell split-layout align-center gap-5">
+          <div class="stack stack-5">
+            <div class="page-intro__meta">
+              <span class="badge badge--brand">Release 0.2.0</span>
+              <nav class="pill-nav" aria-label="Documentation versions">
+                <a class="pill-nav__item is-active" href="./index.html">Latest docs</a>
+                <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
+                <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+              </nav>
+            </div>
+
+            <div class="stack stack-4">
+              <p class="eyebrow">Pure CSS, readable by humans</p>
+              <h1 class="display">PCSST builds systems, not utility soup.</h1>
+              <p class="lead measure">
+                Perfect CSS Treasure combines tokens, responsive utility tiers,
+                layout objects, UI primitives, and release-ready docs in one
+                plain CSS framework.
+              </p>
+            </div>
+
+            <div class="cluster">
+              <a class="button button--primary" href="./getting-started.html">
+                Start building
+              </a>
+              <a class="button button--quiet" href="./library.html">
+                Browse the library
+              </a>
+              <a class="button button--ghost" href="./showcase.html">
+                View showcase
+              </a>
+            </div>
+
+            <div class="chip-row">
+              <button class="button button--ghost" type="button" data-theme-switch="treasure">
+                Treasure
+              </button>
+              <button class="button button--ghost" type="button" data-theme-switch="reef">
+                Reef
+              </button>
+              <button class="button button--ghost" type="button" data-theme-switch="midnight">
+                Midnight
+              </button>
+            </div>
+          </div>
+
+          <div class="app-shell page-hero">
+            <aside class="app-shell__sidebar stack stack-4">
+              <div class="stack stack-2">
+                <span class="badge badge--accent">PCSST UI</span>
+                <h2>Framework surface</h2>
+              </div>
+              <div class="tabs">
+                <a class="tab is-active" href="./library.html">Library</a>
+                <a class="tab" href="./themes.html">Themes</a>
+                <a class="tab" href="./changelog.html">Release</a>
+              </div>
+              <p class="muted">
+                The docs themselves run on PCSST components, layouts, and theme
+                tokens.
+              </p>
+            </aside>
+
+            <div class="app-shell__main stack stack-4">
+              <div class="toolbar">
+                <div class="toolbar__group">
+                  <span class="badge badge--highlight">Responsive tiers</span>
+                  <span class="badge">Guides</span>
+                </div>
+                <a class="button button--primary" href="./changelog.html">Release flow</a>
+              </div>
+
+              <div class="stat-strip">
+                <article class="stat-strip__item">
+                  <span class="metric__value">3</span>
+                  <span class="metric__label">Native themes</span>
+                </article>
+                <article class="stat-strip__item">
+                  <span class="metric__value">0</span>
+                  <span class="metric__label">Runtime deps</span>
+                </article>
+                <article class="stat-strip__item">
+                  <span class="metric__value">6</span>
+                  <span class="metric__label">Docs pages</span>
+                </article>
+              </div>
+
+              <div class="grid md-grid-2 gap-4">
+                <article class="kpi-card">
+                  <span class="metric__label">API direction</span>
+                  <strong class="metric__value">Readable</strong>
+                  <span class="kpi-card__trend">Layouts and components over shorthand piles</span>
+                </article>
+                <article class="kpi-card">
+                  <span class="metric__label">Release posture</span>
+                  <strong class="metric__value">Shippable</strong>
+                  <span class="kpi-card__trend">Build, verify, site export, and release archive scripts included</span>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell stack stack-6">
+          <div class="stack stack-3 center">
+            <p class="eyebrow">Framework direction</p>
+            <h2>PCSST is opinionated about clarity.</h2>
+            <p class="lead measure">
+              Utility classes are descriptive, responsive behavior is built into
+              named tiers, and the framework includes actual interface pieces so
+              teams can move from prototype to system language faster.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="card feature-panel">
+              <div class="feature-icon">01</div>
+              <h3>Readable layouts</h3>
+              <p class="muted">
+                Use <code>.stack</code>, <code>.cluster</code>,
+                <code>.split-layout</code>, and <code>.feature-grid</code>
+                instead of expressing every property inline.
+              </p>
+            </article>
+            <article class="card feature-panel">
+              <div class="feature-icon">02</div>
+              <h3>Responsive tiers</h3>
+              <p class="muted">
+                PCSST now ships <code>.sm-*</code>, <code>.md-*</code>, and
+                <code>.lg-*</code> variants for common layout, spacing, and
+                alignment changes.
+              </p>
+            </article>
+            <article class="card feature-panel">
+              <div class="feature-icon">03</div>
+              <h3>Docs as product UI</h3>
+              <p class="muted">
+                The documentation site is not an afterthought. It uses pill
+                navs, toolbars, command cards, app shells, and themed previews
+                from the library itself.
+              </p>
+            </article>
+            <article class="card feature-panel">
+              <div class="feature-icon">04</div>
+              <h3>Release automation</h3>
+              <p class="muted">
+                CI verification, GitHub Pages deployment, and tag-based package
+                release workflows are part of the repository baseline.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell compare-grid">
+          <article class="card release-note stack stack-4">
+            <p class="eyebrow">What ships now</p>
+            <h2 class="headline">A fuller first release surface.</h2>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-list__icon">A</span>
+                <div class="stack stack-2">
+                  <strong>Tokens and themes</strong>
+                  <span class="muted">Treasure, Reef, and Midnight all use the same component markup.</span>
+                </div>
+              </li>
+              <li>
+                <span class="feature-list__icon">B</span>
+                <div class="stack stack-2">
+                  <strong>Core UI primitives</strong>
+                  <span class="muted">Buttons, cards, notices, tabs, toolbars, command cards, timelines, progress bars, and app shells.</span>
+                </div>
+              </li>
+              <li>
+                <span class="feature-list__icon">C</span>
+                <div class="stack stack-2">
+                  <strong>Version-aware docs</strong>
+                  <span class="muted">Guides, library reference, themes, showcase pages, and changelog pages all share the same docs chrome.</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="command-card">
+            <div class="command-card__bar">
+              <strong>Release scripts</strong>
+              <span class="annotation">Zero-dependency local flow</span>
+            </div>
+            <div class="command-card__body">
+              <code>python3 scripts/build.py
+python3 scripts/verify.py
+python3 scripts/export_site.py
+python3 scripts/package.py</code>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell stack stack-5">
+          <div class="stack stack-3 center">
+            <p class="eyebrow">Docs map</p>
+            <h2>Navigate PCSST by task, not by guessing.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <a class="card section-card" href="./getting-started.html">
+              <span class="badge badge--accent">Guides</span>
+              <h3>Getting started</h3>
+              <p class="muted">Install, compose your first section, and understand the responsive tier model.</p>
+            </a>
+            <a class="card section-card" href="./library.html">
+              <span class="badge badge--brand">Reference</span>
+              <h3>Library API</h3>
+              <p class="muted">Tokens, layouts, utilities, components, forms, and higher-order patterns.</p>
+            </a>
+            <a class="card section-card" href="./themes.html">
+              <span class="badge badge--highlight">Themes</span>
+              <h3>Theme system</h3>
+              <p class="muted">Built-in palettes, runtime switching, and custom theme authoring with CSS variables.</p>
+            </a>
+            <a class="card section-card" href="./showcase.html">
+              <span class="badge">UI examples</span>
+              <h3>Showcase</h3>
+              <p class="muted">See marketing, dashboard, mobile, and workspace surfaces composed with stock PCSST classes.</p>
+            </a>
+            <a class="card section-card" href="./search.html">
+              <span class="badge badge--accent">Search</span>
+              <h3>Docs search</h3>
+              <p class="muted">Search the static docs bundle by page, topic, or framework capability, with a keyboard shortcut.</p>
+            </a>
+            <a class="card section-card" href="./changelog.html">
+              <span class="badge badge--brand">Release</span>
+              <h3>Changelog</h3>
+              <p class="muted">Track the framework history, release flow, and roadmap for the next expansion.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <div class="stack stack-2">
+          <strong>PCSST</strong>
+          <p class="muted measure">
+            Perfect CSS Treasure is a pure CSS framework with a real docs site,
+            responsive tiers, theme support, and release automation.
+          </p>
+        </div>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./getting-started.html">Guides</a>
+          <a class="button button--ghost" href="./library.html">Library</a>
+          <a class="button button--ghost" href="./themes.html">Themes</a>
+          <a class="button button--ghost" href="./changelog.html">Changelog</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

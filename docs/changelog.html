@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Track PCSST releases, automation, and roadmap."
+    />
+    <title>PCSST Changelog</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="shell stack stack-6">
+        <section class="card page-hero section-card stack stack-5">
+          <div class="page-intro">
+            <div class="page-intro__meta">
+              <span class="badge badge--brand">Release history</span>
+              <nav class="pill-nav" aria-label="Documentation versions">
+                <a class="pill-nav__item" href="./index.html">Latest docs</a>
+                <a class="pill-nav__item is-active" href="./changelog.html">Changelog</a>
+                <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
+              </nav>
+            </div>
+            <h1 class="headline">PCSST now has a release shape, not just a demo.</h1>
+            <p class="lead measure">
+              The framework release track now includes responsive utilities,
+              expanded docs, verification scripts, site export, packaging, and
+              GitHub automation for CI, Pages, and tagged releases.
+            </p>
+          </div>
+        </section>
+
+        <section class="compare-grid">
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">Release timeline</p>
+            <h2>Major milestones so far.</h2>
+            <div class="timeline">
+              <article class="timeline__item" id="foundation">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">v0.1.0 Foundation</span>
+                <strong>Shipped the initial PCSST token system, layout helpers, component set, and docs scaffold.</strong>
+              </article>
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">v0.2.0 Current</span>
+                <strong>Added responsive tier utilities, pill navs, toolbars, stat strips, timelines, progress, app shells, and multi-page docs.</strong>
+              </article>
+              <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">Next</span>
+                <strong>Move toward stronger accessibility primitives, more data-display components, and a formal plugin ecosystem around PCSST.</strong>
+              </article>
+            </div>
+          </article>
+
+          <article class="card release-note stack stack-4">
+            <p class="eyebrow">What changed in the preview</p>
+            <h2>New in the current docs set.</h2>
+            <ul class="list-check">
+              <li>Responsive tiers: <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code> utilities.</li>
+              <li>Expanded components: pill nav, toolbar, stat strip, timeline, progress, command card, kpi card, app shell.</li>
+              <li>New docs pages: getting started, themes, showcase, and changelog.</li>
+              <li>Automation: verify, site export, package scripts plus GitHub workflows.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="feature-grid">
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">Local automation</p>
+            <h2>Python scripts in the repo</h2>
+            <div class="command-card">
+              <div class="command-card__bar">
+                <strong>Scripts</strong>
+                <span class="annotation">No extra dependencies</span>
+              </div>
+              <div class="command-card__body">
+                <code>build.py
+verify.py
+dev.py
+export_site.py
+package.py</code>
+              </div>
+            </div>
+          </article>
+
+          <article class="card section-card stack stack-4">
+            <p class="eyebrow">Repository automation</p>
+            <h2>GitHub workflow coverage</h2>
+            <ul class="feature-list">
+              <li>
+                <span class="feature-list__icon">CI</span>
+                <div class="stack stack-2">
+                  <strong>Run verification on pushes and pull requests.</strong>
+                  <span class="muted">Ensures the framework builds and docs references stay intact.</span>
+                </div>
+              </li>
+              <li>
+                <span class="feature-list__icon">PG</span>
+                <div class="stack stack-2">
+                  <strong>Export and deploy the docs site to GitHub Pages.</strong>
+                  <span class="muted">The <code>site/</code> artifact is generated automatically.</span>
+                </div>
+              </li>
+              <li>
+                <span class="feature-list__icon">RL</span>
+                <div class="stack stack-2">
+                  <strong>Package and publish on version tags.</strong>
+                  <span class="muted">Tagged releases verify the version, create an archive, and optionally publish to npm.</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="stack stack-4">
+          <div class="stack stack-3 center">
+            <p class="eyebrow">Roadmap</p>
+            <h2>Next release candidates</h2>
+          </div>
+          <div class="roadmap-grid">
+            <article class="card section-card stack stack-3">
+              <span class="badge badge--accent">Accessibility</span>
+              <h3>Stronger state primitives</h3>
+              <p class="muted">Focus rings are already present; next up are skip links, disclosure patterns, and richer form validation affordances.</p>
+            </article>
+            <article class="card section-card stack stack-3">
+              <span class="badge badge--brand">Data UI</span>
+              <h3>Tables, filters, and density controls</h3>
+              <p class="muted">Expand PCSST toward dashboards with better data display containers and compact layout modes.</p>
+            </article>
+            <article class="card section-card stack stack-3">
+              <span class="badge badge--highlight">Tooling</span>
+              <h3>Packaging polish</h3>
+              <p class="muted">Version manifests, docs search, and release note generation are the next logical automation layers.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <p class="muted">PCSST now has a repeatable release path.</p>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./getting-started.html">Guide</a>
+          <a class="button button--ghost" href="./library.html">Library</a>
+          <a class="button button--ghost" href="./themes.html">Themes</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

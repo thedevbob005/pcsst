@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en" data-pcsst-theme="treasure">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Browse the PCSST CSS framework API: tokens, layouts, responsive tiers, utilities, components, and patterns."
+    />
+    <title>PCSST Library</title>
+    <link rel="icon" href="./assets/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../dist/pcsst.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="docs-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell cluster justify-between header-bar">
+        <a class="brand-link" href="./index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            PCSST
+            <small>Perfect CSS Treasure</small>
+          </span>
+        </a>
+        <button
+          class="button button--ghost nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          Menu
+        </button>
+        <nav class="site-links" id="site-menu" data-site-menu>
+          <a href="./index.html" data-nav-link>Overview</a>
+          <a href="./getting-started.html" data-nav-link>Guides</a>
+          <a href="./library.html" data-nav-link>Library</a>
+          <a href="./themes.html" data-nav-link>Themes</a>
+          <a href="./showcase.html" data-nav-link>Showcase</a>
+          <a href="./search.html" data-nav-link>Search</a>
+          <a href="./changelog.html" data-nav-link>Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="shell sidebar-layout docs-layout">
+        <aside class="card docs-sidebar pad-4 stack stack-4">
+          <div class="stack stack-2">
+            <p class="eyebrow">Reference</p>
+            <h2>PCSST library</h2>
+          </div>
+          <nav class="docs-nav">
+            <a href="#get-started">Get started</a>
+            <a href="#tokens">Tokens</a>
+            <a href="#layouts">Layouts</a>
+            <a href="#responsive">Responsive tiers</a>
+            <a href="#utilities">Utilities</a>
+            <a href="#components">Components</a>
+            <a href="#forms">Forms</a>
+            <a href="#patterns">Patterns</a>
+          </nav>
+          <div class="notice notice--accent">
+            <strong>Current docs</strong>
+            <span>Latest preview with responsive tier utilities and expanded component primitives.</span>
+          </div>
+        </aside>
+
+        <div class="stack stack-6 docs-shell">
+          <section id="get-started" class="card section-card page-hero stack stack-4 rail-card">
+            <div class="page-intro">
+              <div class="page-intro__meta">
+                <span class="badge badge--brand">Library reference</span>
+                <nav class="pill-nav" aria-label="Documentation versions">
+                  <a class="pill-nav__item is-active" href="./library.html">Latest</a>
+                  <a class="pill-nav__item" href="./changelog.html#foundation">Stable 0.1.0</a>
+                  <a class="pill-nav__item" href="./changelog.html">Changelog</a>
+                </nav>
+              </div>
+              <h1 class="headline">Add one stylesheet. Compose with design language.</h1>
+              <p class="lead measure">
+                PCSST gives you named layout objects, readable utilities,
+                responsive tiers, and interface primitives designed to work
+                together.
+              </p>
+            </div>
+
+            <div class="code-card">
+              <button class="button button--quiet copy-button" type="button" data-copy>
+                Copy
+              </button>
+              <div class="code-block">
+                <code>&lt;link rel="stylesheet" href="dist/pcsst.css" /&gt;
+
+&lt;section class="shell section stack stack-5"&gt;
+  &lt;span class="badge badge--brand"&gt;New&lt;/span&gt;
+  &lt;h1 class="display"&gt;Perfect CSS Treasure&lt;/h1&gt;
+  &lt;p class="lead"&gt;Readable CSS for products, prototypes, and docs.&lt;/p&gt;
+  &lt;div class="cluster md-cluster-wide"&gt;
+    &lt;a class="button button--primary" href="#"&gt;Try PCSST&lt;/a&gt;
+    &lt;a class="button button--ghost" href="#"&gt;View API&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code>
+              </div>
+            </div>
+          </section>
+
+          <section id="tokens" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Tokens</p>
+            <h2>Colors, spacing, typography, radii, and depth are all custom properties.</h2>
+            <p class="muted">
+              Override them at <code>:root</code> or scope them to any subtree
+              with <code>data-pcsst-theme</code>.
+            </p>
+            <div class="token-grid">
+              <article class="token-swatch">
+                <div class="token-swatch__preview" style="background: var(--pc-color-accent);"></div>
+                <strong>Accent</strong>
+                <span class="muted"><code>--pc-color-accent</code></span>
+              </article>
+              <article class="token-swatch">
+                <div class="token-swatch__preview" style="background: var(--pc-color-brand);"></div>
+                <strong>Brand</strong>
+                <span class="muted"><code>--pc-color-brand</code></span>
+              </article>
+              <article class="token-swatch">
+                <div class="token-swatch__preview" style="background: var(--pc-color-panel);"></div>
+                <strong>Panel</strong>
+                <span class="muted"><code>--pc-color-panel</code></span>
+              </article>
+              <article class="token-swatch">
+                <div class="token-swatch__preview" style="background: var(--pc-color-highlight);"></div>
+                <strong>Highlight</strong>
+                <span class="muted"><code>--pc-color-highlight</code></span>
+              </article>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Examples</th>
+                    <th>Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Typography</td>
+                    <td><code>--pc-font-sans</code>, <code>--pc-font-display</code></td>
+                    <td>Body copy, display headings, code blocks, and interface labels.</td>
+                  </tr>
+                  <tr>
+                    <td>Spacing</td>
+                    <td><code>--pc-space-1</code> to <code>--pc-space-8</code></td>
+                    <td>Rhythm shared by cards, stacks, fields, and app shells.</td>
+                  </tr>
+                  <tr>
+                    <td>Color</td>
+                    <td><code>--pc-color-*</code></td>
+                    <td>Surfaces, feedback states, brand direction, and theming.</td>
+                  </tr>
+                  <tr>
+                    <td>Shape</td>
+                    <td><code>--pc-radius-*</code>, <code>--pc-shadow-*</code></td>
+                    <td>Consistent surface hierarchy and touch target feel.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="layouts" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Layouts</p>
+            <h2>PCSST ships composition helpers instead of forcing property soup.</h2>
+            <div class="preview-grid">
+              <div class="component-preview stack stack-4">
+                <div class="stack stack-3">
+                  <span class="badge badge--accent">Stack</span>
+                  <div class="surface-2 pad-4">Narrative block</div>
+                  <div class="surface-2 pad-4">Supporting context</div>
+                  <div class="surface-2 pad-4">Actions</div>
+                </div>
+                <div class="cluster">
+                  <span class="badge badge--brand">Cluster</span>
+                  <span class="badge">Filters</span>
+                  <span class="badge">Tags</span>
+                  <span class="badge">Status</span>
+                </div>
+                <div class="feature-grid">
+                  <div class="surface-2 pad-4">Feature card</div>
+                  <div class="surface-2 pad-4">Feature card</div>
+                  <div class="surface-2 pad-4">Feature card</div>
+                </div>
+              </div>
+              <div class="code-card">
+                <button class="button button--quiet copy-button" type="button" data-copy>
+                  Copy
+                </button>
+                <div class="code-block">
+                  <code>&lt;div class="stack stack-4"&gt;...&lt;/div&gt;
+&lt;div class="cluster"&gt;...&lt;/div&gt;
+&lt;div class="feature-grid"&gt;...&lt;/div&gt;
+&lt;div class="split-layout"&gt;...&lt;/div&gt;
+&lt;div class="rail-layout"&gt;...&lt;/div&gt;
+&lt;div class="app-layout"&gt;...&lt;/div&gt;</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="responsive" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Responsive tiers</p>
+            <h2>Use <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code> classes for common breakpoint changes.</h2>
+            <p class="muted">
+              PCSST keeps responsive behavior readable instead of burying it in
+              cryptic class chains.
+            </p>
+            <div class="preview-grid">
+              <div class="component-preview stack stack-4">
+                <div class="grid md-grid-3 gap-4">
+                  <div class="surface-2 pad-4">Grid item one</div>
+                  <div class="surface-2 pad-4">Grid item two</div>
+                  <div class="surface-2 pad-4">Grid item three</div>
+                </div>
+                <div class="cluster md-justify-between md-align-center">
+                  <span class="badge badge--highlight">md-justify-between</span>
+                  <span class="muted">Cluster actions split after the medium breakpoint.</span>
+                </div>
+              </div>
+              <div class="code-card">
+                <button class="button button--quiet copy-button" type="button" data-copy>
+                  Copy
+                </button>
+                <div class="code-block">
+                  <code>&lt;div class="grid md-grid-3 gap-4"&gt;...&lt;/div&gt;
+&lt;div class="cluster md-justify-between md-align-center"&gt;...&lt;/div&gt;
+&lt;section class="shell md-shell-wide lg-shell-wide"&gt;...&lt;/section&gt;
+&lt;div class="pad-4 md-pad-6 lg-pad-7"&gt;...&lt;/div&gt;</code>
+                </div>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Tier</th>
+                    <th>Examples</th>
+                    <th>Intent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Small</td>
+                    <td><code>.sm-grid-2</code>, <code>.sm-pad-5</code></td>
+                    <td>Early layout promotion for tablets or wider phones.</td>
+                  </tr>
+                  <tr>
+                    <td>Medium</td>
+                    <td><code>.md-grid-3</code>, <code>.md-shell-wide</code></td>
+                    <td>Main breakpoint for dashboard, docs, and landing layouts.</td>
+                  </tr>
+                  <tr>
+                    <td>Large</td>
+                    <td><code>.lg-grid-4</code>, <code>.lg-pad-7</code></td>
+                    <td>Expand density and spacing for wide workspaces.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="utilities" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Utilities</p>
+            <h2>Utilities stay descriptive and system-oriented.</h2>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Group</th>
+                    <th>Examples</th>
+                    <th>Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Type</td>
+                    <td><code>.display</code>, <code>.lead</code>, <code>.eyebrow</code></td>
+                    <td>Fast hierarchy with a consistent voice.</td>
+                  </tr>
+                  <tr>
+                    <td>Surface</td>
+                    <td><code>.surface-1</code>, <code>.surface-inverse</code></td>
+                    <td>Named container treatments for panels, overlays, and callouts.</td>
+                  </tr>
+                  <tr>
+                    <td>Space</td>
+                    <td><code>.pad-5</code>, <code>.pad-y-4</code>, <code>.gap-3</code></td>
+                    <td>Targeted spacing when layout objects are not enough.</td>
+                  </tr>
+                  <tr>
+                    <td>Text</td>
+                    <td><code>.center</code>, <code>.text-left</code>, <code>.muted</code></td>
+                    <td>Simple alignment and hierarchy control without long selector chains.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="components" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Components</p>
+            <h2>PCSST includes interface primitives, not just atoms.</h2>
+            <div class="feature-grid">
+              <article class="component-preview stack stack-4">
+                <div class="cluster">
+                  <a class="button button--primary" href="#">Primary</a>
+                  <a class="button button--secondary" href="#">Secondary</a>
+                  <a class="button button--ghost" href="#">Ghost</a>
+                </div>
+                <div class="pill-nav" aria-label="Example pill nav">
+                  <a class="pill-nav__item is-active" href="#">Latest</a>
+                  <a class="pill-nav__item" href="#">Stable</a>
+                  <a class="pill-nav__item" href="#">Roadmap</a>
+                </div>
+              </article>
+              <article class="component-preview stack stack-4">
+                <div class="toolbar">
+                  <div class="toolbar__group">
+                    <span class="badge badge--accent">Toolbar</span>
+                    <span class="badge">Filters</span>
+                  </div>
+                  <a class="button button--quiet" href="#">Export</a>
+                </div>
+                <div class="progress" style="--pc-progress: 72%;">
+                  <span class="progress__bar"></span>
+                </div>
+              </article>
+              <article class="component-preview stack stack-4">
+                <div class="stat-strip">
+                  <article class="stat-strip__item">
+                    <span class="metric__value">12</span>
+                    <span class="metric__label">Tokens touched</span>
+                  </article>
+                  <article class="stat-strip__item">
+                    <span class="metric__value">4</span>
+                    <span class="metric__label">Breakpoints addressed</span>
+                  </article>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="forms" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Forms</p>
+            <h2>Form controls align with the surface system.</h2>
+            <div class="preview-grid">
+              <form class="component-preview stack stack-4">
+                <label class="field">
+                  <span class="label">Project name</span>
+                  <input class="input" type="text" placeholder="PCSST launch" />
+                </label>
+                <label class="field">
+                  <span class="label">Theme</span>
+                  <select class="select">
+                    <option>Treasure</option>
+                    <option>Reef</option>
+                    <option>Midnight</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span class="label">Notes</span>
+                  <textarea class="textarea" placeholder="Make the docs feel like a product surface."></textarea>
+                </label>
+                <div class="cluster">
+                  <button class="button button--primary" type="submit">Save</button>
+                  <button class="button button--ghost" type="button">Cancel</button>
+                </div>
+              </form>
+              <div class="code-card">
+                <button class="button button--quiet copy-button" type="button" data-copy>
+                  Copy
+                </button>
+                <div class="code-block">
+                  <code>&lt;label class="field"&gt;
+  &lt;span class="label"&gt;Project name&lt;/span&gt;
+  &lt;input class="input" type="text" /&gt;
+&lt;/label&gt;
+
+&lt;label class="field"&gt;
+  &lt;span class="label"&gt;Theme&lt;/span&gt;
+  &lt;select class="select"&gt;...&lt;/select&gt;
+&lt;/label&gt;
+
+&lt;label class="field"&gt;
+  &lt;span class="label"&gt;Notes&lt;/span&gt;
+  &lt;textarea class="textarea"&gt;&lt;/textarea&gt;
+&lt;/label&gt;</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="patterns" class="card section-card stack stack-4 rail-card">
+            <p class="eyebrow">Patterns</p>
+            <h2>Common product surfaces are one composition step away.</h2>
+            <div class="showcase-grid">
+              <article class="pricing">
+                <span class="badge badge--accent">Starter</span>
+                <div class="stack stack-2">
+                  <h3>Single product lane</h3>
+                  <div class="pricing__price">$12<span class="muted">/month</span></div>
+                </div>
+                <ul class="list-check">
+                  <li>All utilities and components</li>
+                  <li>Theme variables and tokens</li>
+                  <li>Documentation starter UI</li>
+                </ul>
+                <a class="button button--primary" href="#">Choose starter</a>
+              </article>
+
+              <article class="card stack stack-4">
+                <div class="timeline">
+                  <article class="timeline__item">
+                    <span class="timeline__marker" aria-hidden="true"></span>
+                    <span class="timeline__meta">Compose</span>
+                    <strong>Use layout objects to frame the page.</strong>
+                  </article>
+                  <article class="timeline__item">
+                    <span class="timeline__marker" aria-hidden="true"></span>
+                    <span class="timeline__meta">Refine</span>
+                    <strong>Apply surface, spacing, and type utilities.</strong>
+                  </article>
+                  <article class="timeline__item">
+                    <span class="timeline__marker" aria-hidden="true"></span>
+                    <span class="timeline__meta">Ship</span>
+                    <strong>Package, deploy docs, and tag the release.</strong>
+                  </article>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="shell cluster justify-between align-start">
+        <p class="muted">PCSST library reference for the expanded first release.</p>
+        <div class="cluster cluster-tight">
+          <a class="button button--ghost" href="./getting-started.html">Guides</a>
+          <a class="button button--ghost" href="./themes.html">Themes</a>
+          <a class="button button--ghost" href="./showcase.html">Showcase</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

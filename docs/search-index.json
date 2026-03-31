@@ -1,0 +1,65 @@
+[
+  {
+    "section": "Overview",
+    "title": "PCSST overview",
+    "summary": "Project positioning, release surface, docs map, and framework direction.",
+    "url": "./index.html",
+    "keywords": ["overview", "framework", "release", "direction", "components"]
+  },
+  {
+    "section": "Guide",
+    "title": "Getting started",
+    "summary": "Install the stylesheet, compose a first section, and learn the responsive tier model.",
+    "url": "./getting-started.html",
+    "keywords": ["guide", "install", "responsive", "build", "workflow"]
+  },
+  {
+    "section": "Reference",
+    "title": "Library reference",
+    "summary": "Tokens, layouts, utilities, components, forms, and patterns.",
+    "url": "./library.html",
+    "keywords": ["reference", "library", "tokens", "utilities", "patterns"]
+  },
+  {
+    "section": "Reference",
+    "title": "Responsive tiers",
+    "summary": "Use sm, md, and lg utilities for readable breakpoint changes.",
+    "url": "./library.html#responsive",
+    "keywords": ["responsive", "sm", "md", "lg", "breakpoints", "grid"]
+  },
+  {
+    "section": "Reference",
+    "title": "Components",
+    "summary": "Buttons, pill navs, toolbars, stat strips, progress bars, timelines, and app shells.",
+    "url": "./library.html#components",
+    "keywords": ["components", "toolbar", "timeline", "progress", "app shell", "pill nav"]
+  },
+  {
+    "section": "Themes",
+    "title": "Theme system",
+    "summary": "Built-in palettes, scoped theming, and custom variable overrides.",
+    "url": "./themes.html",
+    "keywords": ["themes", "tokens", "data-pcsst-theme", "treasure", "reef", "midnight"]
+  },
+  {
+    "section": "Showcase",
+    "title": "UI showcase",
+    "summary": "Marketing, dashboard, mobile, and workspace examples built with stock PCSST classes.",
+    "url": "./showcase.html",
+    "keywords": ["showcase", "examples", "marketing", "dashboard", "mobile"]
+  },
+  {
+    "section": "Release",
+    "title": "Changelog",
+    "summary": "Release history, automation coverage, and roadmap.",
+    "url": "./changelog.html",
+    "keywords": ["changelog", "release", "roadmap", "automation", "workflows"]
+  },
+  {
+    "section": "Release",
+    "title": "Release automation",
+    "summary": "CI verification, Pages deployment, and tag-based packaging/publishing.",
+    "url": "./changelog.html#foundation",
+    "keywords": ["ci", "pages", "publish", "package", "github actions"]
+  }
+]

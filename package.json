@@ -1,0 +1,47 @@
+{
+  "name": "pcsst",
+  "version": "0.2.0",
+  "description": "PCSST (Perfect CSS Treasure) is a pure CSS framework with tokens, utilities, components, and a documentation site.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedevbob005/pcsst.git"
+  },
+  "homepage": "https://thedevbob005.github.io/pcsst/",
+  "bugs": {
+    "url": "https://github.com/thedevbob005/pcsst/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "keywords": [
+    "css",
+    "framework",
+    "design-system",
+    "utility-css",
+    "components",
+    "pcsst"
+  ],
+  "style": "dist/pcsst.css",
+  "exports": {
+    "./pcsst.css": "./dist/pcsst.css",
+    "./pcsst.min.css": "./dist/pcsst.min.css",
+    "./src.css": "./src/pcsst.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "verify": "python3 scripts/verify.py",
+    "site": "python3 scripts/export_site.py",
+    "package": "python3 scripts/package.py",
+    "dev": "python3 scripts/dev.py",
+    "start": "python3 scripts/dev.py"
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>PCSST Mark</title>
+  <defs>
+    <linearGradient id="shell" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d6b6b" />
+      <stop offset="100%" stop-color="#d06c4b" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#fff8ea" />
+  <path d="M64 16l14 34 34 14-34 14-14 34-14-34-34-14 34-14z" fill="url(#shell)" />
+  <circle cx="64" cy="64" r="10" fill="#fff8ea" />
+</svg>
