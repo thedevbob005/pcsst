@@ -214,6 +214,41 @@ body.docs-body {
   background: radial-gradient(circle, rgba(15, 109, 109, 0.14), transparent 68%);
 }
 
+.overview-hero {
+  align-items: start;
+}
+
+.overview-preview-shell {
+  width: min(100%, 36rem);
+  align-self: start;
+  justify-self: end;
+  grid-template-columns: 1fr;
+}
+
+.overview-preview-shell .app-shell__sidebar,
+.overview-preview-shell .app-shell__main {
+  padding: var(--pc-space-4);
+}
+
+.overview-preview-shell,
+.overview-preview-shell .app-shell__sidebar,
+.overview-preview-shell .app-shell__main,
+.overview-preview-shell .toolbar,
+.overview-preview-shell .stat-strip__item,
+.overview-preview-shell .kpi-card {
+  min-width: 0;
+}
+
+.overview-preview-shell .metric__value {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  overflow-wrap: anywhere;
+}
+
+.overview-kpi-grid {
+  display: grid;
+  gap: var(--pc-space-4);
+}
+
 .theme-board,
 .release-note {
   position: relative;
@@ -410,6 +445,23 @@ body.docs-body {
 
   .theme-preview-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 80rem) {
+  .overview-preview-shell {
+    grid-template-columns: minmax(11rem, 13rem) minmax(0, 1fr);
+  }
+
+  .overview-preview-shell .app-shell__sidebar,
+  .overview-preview-shell .app-shell__main {
+    padding: var(--pc-space-5);
+  }
+}
+
+@media (min-width: 90rem) {
+  .overview-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
