@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 from pathlib import Path
 
 
@@ -10,6 +11,9 @@ SOURCE_PATH = ROOT_DIR / "src" / "pcsst.css"
 DIST_DIR = ROOT_DIR / "dist"
 DIST_PATH = DIST_DIR / "pcsst.css"
 DIST_MIN_PATH = DIST_DIR / "pcsst.min.css"
+DOCS_DIST_DIR = ROOT_DIR / "docs" / "dist"
+DOCS_DIST_PATH = DOCS_DIST_DIR / "pcsst.css"
+DOCS_DIST_MIN_PATH = DOCS_DIST_DIR / "pcsst.min.css"
 
 
 def minify_css(source: str) -> str:
@@ -25,8 +29,11 @@ def build() -> tuple[Path, Path]:
     banner = f"/*! PCSST v{package['version']} | MIT License */\n"
 
     DIST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_DIST_DIR.mkdir(parents=True, exist_ok=True)
     DIST_PATH.write_text(f"{banner}{source}\n", encoding="utf-8")
     DIST_MIN_PATH.write_text(f"{banner}{minify_css(source)}\n", encoding="utf-8")
+    shutil.copyfile(DIST_PATH, DOCS_DIST_PATH)
+    shutil.copyfile(DIST_MIN_PATH, DOCS_DIST_MIN_PATH)
 
     return DIST_PATH, DIST_MIN_PATH
 
