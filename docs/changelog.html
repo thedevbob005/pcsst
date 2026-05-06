@@ -58,7 +58,7 @@
             </div>
             <h1 class="headline">PCSST now has a broader utility release, not just a starter surface.</h1>
             <p class="lead measure">
-              `v0.3.0` adds CSS-only variants, richer spacing and sizing,
+              `v0.4.0` adds CSS-only variants, richer spacing and sizing,
               positioning, stronger flex and grid controls, container queries,
               expanded docs, and the same verification and packaging flow.
             </p>
@@ -80,10 +80,15 @@
                 <span class="timeline__meta">v0.2.0 Foundation</span>
                 <strong>Added responsive tier utilities, pill navs, toolbars, stat strips, timelines, progress, app shells, and multi-page docs.</strong>
               </article>
+                            <article class="timeline__item">
+                <span class="timeline__marker" aria-hidden="true"></span>
+                <span class="timeline__meta">v0.3.0</span>
+                <strong>Introduces authored `hover:*`, `md:*`, `max-*`, and `@*` variants plus broader spacing, sizing, position, and flex/grid utilities without adding tooling.</strong>
+              </article>
               <article class="timeline__item">
                 <span class="timeline__marker" aria-hidden="true"></span>
-                <span class="timeline__meta">v0.3.0 Current</span>
-                <strong>Introduces authored `hover:*`, `md:*`, `max-*`, and `@*` variants plus broader spacing, sizing, position, and flex/grid utilities without adding tooling.</strong>
+                <span class="timeline__meta">v0.4.0 Current</span>
+                <strong>Modularized architecture, expanded spacing scale (1-12), enhanced component flexibility (sm/lg variants), and many new components (Accordion, Dropdown, Alerts, etc.).</strong>
               </article>
               <article class="timeline__item">
                 <span class="timeline__marker" aria-hidden="true"></span>
@@ -97,10 +102,11 @@
             <p class="eyebrow">What changed in the preview</p>
             <h2>New in the current docs set.</h2>
             <ul class="list-check">
-              <li>Authored variants: <code>hover:*</code>, <code>focus-visible:*</code>, <code>dark:*</code>, <code>sm/md/lg/xl/2xl:*</code>, <code>max-*</code>, and <code>@*</code>.</li>
-              <li>Expanded utilities: margin, sizing, positioning, display, overflow, color, transition, and richer flex/grid controls.</li>
-              <li>Docs refresh: overview, guide, and library reference now demonstrate the `v0.3.0` API directly.</li>
-              <li>Automation baseline stays intact: verify, site export, package scripts plus GitHub workflows.</li>
+              <li><strong>Modular Architecture:</strong> Split the framework into manageable files (base, tokens, layout, utilities, components) with a smart build process.</li>
+              <li><strong>Expanded Design Scale:</strong> Spacing tokens now scale from 1 to 12.</li>
+              <li><strong>Component Flexibility:</strong> Added `sm` and `lg` variants for buttons, badges, and forms. Added state helpers like `.is-loading`.</li>
+              <li><strong>New Layout Objects:</strong> Center, Switcher, Cover, and Reel.</li>
+              <li><strong>New Components:</strong> Accordion, Dropdown, Breadcrumbs, Pagination, Avatar, and Alert.</li>
             </ul>
           </article>
         </section>
@@ -181,7 +187,7 @@ package.py</code>
 
     <footer class="footer-shell">
       <div class="shell cluster justify-between align-start">
-        <p class="muted">PCSST `v0.3.0` broadens the framework without adding a generator layer.</p>
+        <p class="muted">PCSST `v0.4.0` broadens the framework without adding a generator layer.</p>
         <div class="cluster cluster-tight">
           <a class="button button--ghost" href="./getting-started.html">Guide</a>
           <a class="button button--ghost" href="./library.html">Library</a>
