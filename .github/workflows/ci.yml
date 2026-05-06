@@ -25,6 +25,12 @@ jobs:
       - name: Install dependencies
         run: pip install pytest
 
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest
+
       - name: Verify PCSST
         run: python3 scripts/verify.py
 
