@@ -13,6 +13,7 @@ SCRIPT_FILES = [
     ROOT_DIR / "scripts" / "export_site.py",
     ROOT_DIR / "scripts" / "package.py",
     ROOT_DIR / "scripts" / "verify.py",
+    ROOT_DIR / "tests" / "test_build.py",
 ]
 
 
