@@ -1,0 +1,115 @@
+
+  :root,
+  [data-pcsst-theme="treasure"] {
+    --pc-font-sans: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    --pc-font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --pc-font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+    --pc-color-page: #f7f1de;
+    --pc-color-panel: #fffaf0;
+    --pc-color-panel-strong: #efe3c4;
+    --pc-color-panel-inverse: #17313c;
+    --pc-color-border: #d6c4a4;
+    --pc-color-border-strong: #9c8863;
+    --pc-color-ink: #15303a;
+    --pc-color-muted: #5f6d73;
+    --pc-color-accent: #0f6d6d;
+    --pc-color-accent-strong: #0b5050;
+    --pc-color-accent-soft: #d7efea;
+    --pc-color-brand: #d16f4d;
+    --pc-color-brand-strong: #aa4e33;
+    --pc-color-brand-soft: #f6ddd4;
+    --pc-color-highlight: #d0a12c;
+    --pc-color-highlight-soft: #f6ead0;
+    --pc-color-success: #1c7d53;
+    --pc-color-success-soft: #d8f0e4;
+    --pc-color-danger: #b64b50;
+    --pc-color-danger-soft: #f7dadd;
+
+    --pc-space-0: 0;
+    --pc-space-1: 0.25rem;
+    --pc-space-2: 0.5rem;
+    --pc-space-3: 0.75rem;
+    --pc-space-4: 1rem;
+    --pc-space-5: 1.5rem;
+    --pc-space-6: 2rem;
+    --pc-space-7: 3rem;
+    --pc-space-8: 4rem;
+    --pc-space-9: 5rem;
+    --pc-space-10: 6rem;
+    --pc-space-11: 8rem;
+    --pc-space-12: 10rem;
+
+    --pc-radius-sm: 0.5rem;
+    --pc-radius-md: 0.9rem;
+    --pc-radius-lg: 1.4rem;
+    --pc-radius-xl: 2rem;
+    --pc-radius-pill: 999px;
+
+    --pc-shadow-sm: 0 0.5rem 1.5rem rgba(21, 48, 58, 0.08);
+    --pc-shadow-md: 0 1rem 3rem rgba(21, 48, 58, 0.12);
+    --pc-shadow-lg: 0 1.5rem 4rem rgba(21, 48, 58, 0.16);
+
+    --pc-content-max: 76rem;
+    --pc-content-wide: 90rem;
+
+    --pc-step--1: 0.875rem;
+    --pc-step-0: 1rem;
+    --pc-step-1: 1.125rem;
+    --pc-step-2: 1.35rem;
+    --pc-step-3: 1.8rem;
+    --pc-step-4: 2.4rem;
+    --pc-step-5: 3.2rem;
+
+    --pc-transition-fast: 140ms ease;
+    --pc-transition-base: 220ms ease;
+  }
+
+  [data-pcsst-theme="reef"] {
+    --pc-color-page: #eaf7f5;
+    --pc-color-panel: #f9fffe;
+    --pc-color-panel-strong: #d8efea;
+    --pc-color-panel-inverse: #14343b;
+    --pc-color-border: #b9d8d0;
+    --pc-color-border-strong: #739e93;
+    --pc-color-ink: #14343b;
+    --pc-color-muted: #4c6768;
+    --pc-color-accent: #116b79;
+    --pc-color-accent-strong: #0f5160;
+    --pc-color-accent-soft: #d4eef3;
+    --pc-color-brand: #e07c39;
+    --pc-color-brand-strong: #ba6027;
+    --pc-color-brand-soft: #fae0d0;
+    --pc-color-highlight: #c5b13f;
+    --pc-color-highlight-soft: #f3edc8;
+    --pc-color-success: #177557;
+    --pc-color-success-soft: #d5efe4;
+    --pc-color-danger: #bf5252;
+    --pc-color-danger-soft: #f8d9d9;
+  }
+
+  [data-pcsst-theme="midnight"] {
+    --pc-color-page: #0f1d24;
+    --pc-color-panel: #132730;
+    --pc-color-panel-strong: #17313c;
+    --pc-color-panel-inverse: #f8f1df;
+    --pc-color-border: #284955;
+    --pc-color-border-strong: #3d6b79;
+    --pc-color-ink: #edf6f4;
+    --pc-color-muted: #a7c1c0;
+    --pc-color-accent: #57c4c5;
+    --pc-color-accent-strong: #89dad7;
+    --pc-color-accent-soft: #1d4450;
+    --pc-color-brand: #ff9a64;
+    --pc-color-brand-strong: #ffc090;
+    --pc-color-brand-soft: #4a2d1f;
+    --pc-color-highlight: #e6c75a;
+    --pc-color-highlight-soft: #4e4424;
+    --pc-color-success: #67d19d;
+    --pc-color-success-soft: #1d4533;
+    --pc-color-danger: #ff8b91;
+    --pc-color-danger-soft: #4a2327;
+    --pc-shadow-sm: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.28);
+    --pc-shadow-md: 0 1rem 3rem rgba(0, 0, 0, 0.32);
+    --pc-shadow-lg: 0 1.6rem 4.4rem rgba(0, 0, 0, 0.4);
+  }

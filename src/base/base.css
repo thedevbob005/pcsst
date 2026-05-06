@@ -1,0 +1,86 @@
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--pc-color-page);
+    color: var(--pc-color-ink);
+    font-family: var(--pc-font-sans);
+    font-size: var(--pc-step-0);
+    line-height: 1.6;
+  }
+
+  :where(h1, h2, h3, h4) {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 4vw, var(--pc-step-5));
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3vw, var(--pc-step-4));
+  }
+
+  h3 {
+    font-size: var(--pc-step-2);
+  }
+
+  p,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  select {
+    color: inherit;
+  }
+
+  p {
+    max-width: 68ch;
+  }
+
+  a {
+    transition: color var(--pc-transition-fast), opacity var(--pc-transition-fast);
+  }
+
+  a:hover {
+    color: var(--pc-color-accent);
+  }
+
+  strong {
+    font-weight: 800;
+  }
+
+  code,
+  pre {
+    font-family: var(--pc-font-mono);
+    font-size: 0.94em;
+  }
+
+  code {
+    padding: 0.15em 0.42em;
+    border-radius: 0.45rem;
+    background: var(--pc-color-panel-strong);
+  }
+
+  hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid var(--pc-color-border);
+  }
+
+  ::selection {
+    background: var(--pc-color-brand);
+    color: #fff;
+  }
+
+  :where(a, button, input, select, textarea):focus-visible {
+    outline: 3px solid var(--pc-color-highlight);
+    outline-offset: 2px;
+  }
