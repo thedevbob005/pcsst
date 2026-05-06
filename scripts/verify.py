@@ -16,6 +16,7 @@ SCRIPT_FILES = [
     ROOT_DIR / "scripts" / "package.py",
     ROOT_DIR / "scripts" / "verify.py",
     ROOT_DIR / "tests" / "test_package.py",
+    ROOT_DIR / "tests" / "test_verify.py",
 ]
 
 
@@ -25,20 +26,23 @@ class ReferenceParser(HTMLParser):
         self.references: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag not in ("link", "script", "a"):
+            return
+
         attr_map = dict(attrs)
-        rel = attr_map.get("rel")
 
-        if tag == "link" and rel != "icon":
-            href = attr_map.get("href")
-            if href:
-                self.references.append(href)
+        if tag == "link":
+            if attr_map.get("rel") != "icon":
+                href = attr_map.get("href")
+                if href:
+                    self.references.append(href)
 
-        if tag == "script":
+        elif tag == "script":
             src = attr_map.get("src")
             if src:
                 self.references.append(src)
 
-        if tag == "a":
+        elif tag == "a":
             href = attr_map.get("href")
             if href and href.startswith("./"):
                 self.references.append(href)
@@ -56,6 +60,7 @@ def verify_tests() -> None:
 
 def verify_docs() -> None:
     issues: list[str] = []
+    checked_refs: dict[tuple[Path, str], bool] = {}
 
     for html_file in DOCS_DIR.glob("*.html"):
         parser = ReferenceParser()
@@ -68,8 +73,12 @@ def verify_docs() -> None:
             if not ref_path:
                 continue
 
-            target = (html_file.parent / ref_path).resolve()
-            if not target.exists():
+            cache_key = (html_file.parent, ref_path)
+            if cache_key not in checked_refs:
+                target = (html_file.parent / ref_path).resolve()
+                checked_refs[cache_key] = target.exists()
+
+            if not checked_refs[cache_key]:
                 issues.append(f"{html_file.name}: missing {ref_path}")
 
     if issues:

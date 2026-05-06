@@ -43,6 +43,7 @@
     "package": "python3 scripts/package.py",
     "test": "python3 -m pytest",
     "dev": "python3 scripts/dev.py",
-    "start": "python3 scripts/dev.py"
+    "start": "python3 scripts/dev.py",
+    "test": "pytest"
   }
 }
