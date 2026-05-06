@@ -64,7 +64,7 @@
           </nav>
           <div class="notice notice--accent">
             <strong>Current docs</strong>
-            <span>`v0.3.0` adds CSS-only variants, container queries, and a broader core utility surface.</span>
+            <span>`v0.4.0` adds CSS-only variants, container queries, and a broader core utility surface.</span>
           </div>
         </aside>
 
@@ -207,7 +207,11 @@
 &lt;div class="feature-grid"&gt;...&lt;/div&gt;
 &lt;div class="split-layout"&gt;...&lt;/div&gt;
 &lt;div class="rail-layout"&gt;...&lt;/div&gt;
-&lt;div class="app-layout"&gt;...&lt;/div&gt;</code>
+&lt;div class="app-layout"&gt;...&lt;/div&gt;
+&lt;div class="center-layout"&gt;...&lt;/div&gt;
+&lt;div class="switcher"&gt;...&lt;/div&gt;
+&lt;div class="cover"&gt;...&lt;/div&gt;
+&lt;div class="reel"&gt;...&lt;/div&gt;</code>
                 </div>
               </div>
             </div>
@@ -218,7 +222,7 @@
             <h2>Use literal breakpoint tokens like <code>md:grid-cols-3</code> and <code>max-lg:flex-col</code>.</h2>
             <p class="muted">
               PCSST keeps responsive behavior readable without hiding it behind
-              tooling. `v0.3.0` adds authored breakpoint and range variants,
+              tooling. `v0.4.0` adds authored breakpoint and range variants,
               while the older <code>.sm-*</code>, <code>.md-*</code>, and
               <code>.lg-*</code> helpers remain available.
             </p>
@@ -331,6 +335,11 @@
                     <td>Handle interaction states without leaving the utility layer.</td>
                   </tr>
                   <tr>
+                    <td>Status</td>
+                    <td><code>.is-loading</code>, <code>.is-invalid</code>, <code>.is-valid</code>, <code>.is-active</code></td>
+                    <td>Authoritative UI states for components and forms.</td>
+                  </tr>
+                  <tr>
                     <td>Dark</td>
                     <td><code>dark:bg-panel-inverse</code>, <code>dark:text-page</code></td>
                     <td>Scope overrides to <code>data-pcsst-theme="midnight"</code> using the same markup.</td>
@@ -388,6 +397,16 @@
                     <td><code>.transition-transform</code>, <code>.hover:shadow-md</code>, <code>.focus-visible:outline-2</code></td>
                     <td>Add interaction affordances with stock classes instead of custom one-off selectors.</td>
                   </tr>
+                  <tr>
+                    <td>Flexbox &amp; Grid Plus</td>
+                    <td><code>.flex-grow</code>, <code>.grid-cols-12</code>, <code>.order-first</code>, <code>.justify-self-center</code></td>
+                    <td>Fine-grained control over flex and grid children, including 12-column grid support.</td>
+                  </tr>
+                  <tr>
+                    <td>Media &amp; Layering</td>
+                    <td><code>.aspect-video</code>, <code>.object-cover</code>, <code>.z-10</code></td>
+                    <td>Manage element proportions, image fitting, and stack order.</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -402,6 +421,7 @@
                   <a class="button button--primary" href="#">Primary</a>
                   <a class="button button--secondary" href="#">Secondary</a>
                   <a class="button button--ghost" href="#">Ghost</a>
+                  <a class="button button--link" href="#">Link button</a>
                 </div>
                 <div class="pill-nav" aria-label="Example pill nav">
                   <a class="pill-nav__item is-active" href="#">Latest</a>
@@ -432,6 +452,65 @@
                     <span class="metric__label">Breakpoints addressed</span>
                   </article>
                 </div>
+              </article>
+              <article class="component-preview stack stack-4">
+                <div class="accordion">
+                  <details open>
+                    <summary>Expanded Item</summary>
+                    <div class="accordion__content">Content for expanded item.</div>
+                  </details>
+                  <details>
+                    <summary>Collapsed Item</summary>
+                    <div class="accordion__content">Content for collapsed item.</div>
+                  </details>
+                </div>
+                <div class="cluster">
+                  <div class="avatar">JD</div>
+                  <div class="avatar"><img src="./assets/mark.svg" alt="Avatar" /></div>
+                  <div class="avatar avatar--sm">SM</div>
+                </div>
+              </article>
+              <article class="component-preview stack stack-4">
+                <div class="alert alert--info">
+                  <strong>Info</strong> This is an informative alert.
+                </div>
+                <nav aria-label="Pagination">
+                  <ul class="pagination">
+                    <li><a class="pagination__item" href="#">1</a></li>
+                    <li><a class="pagination__item is-active" href="#">2</a></li>
+                    <li><a class="pagination__item" href="#">3</a></li>
+                  </ul>
+                </nav>
+              </article>
+              <article class="component-preview stack stack-4">
+                <div class="divider">OR</div>
+                <div class="cluster">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="switch__track"><span class="switch__thumb"></span></span>
+                    <span class="label">Toggle</span>
+                  </label>
+                  <span class="tooltip" data-tooltip="Helpful hint">
+                    <span class="badge">Hover me</span>
+                  </span>
+                </div>
+                <input type="range" class="range" min="0" max="100" value="70" />
+              </article>
+              <article class="component-preview stack stack-4">
+                <ul class="stepper">
+                  <li class="stepper__item">
+                    <div class="stepper__dot">1</div>
+                    <span class="text-sm">Start</span>
+                  </li>
+                  <li class="stepper__item is-active">
+                    <div class="stepper__dot">2</div>
+                    <span class="text-sm">Build</span>
+                  </li>
+                  <li class="stepper__item">
+                    <div class="stepper__dot">3</div>
+                    <span class="text-sm">Ship</span>
+                  </li>
+                </ul>
               </article>
             </div>
           </section>
@@ -531,7 +610,7 @@
 
     <footer class="footer-shell">
       <div class="shell cluster justify-between align-start">
-        <p class="muted">PCSST library reference for the `v0.3.0` utility and variant release.</p>
+        <p class="muted">PCSST library reference for the `v0.4.0` utility and variant release.</p>
         <div class="cluster cluster-tight">
           <a class="button button--ghost" href="./getting-started.html">Guides</a>
           <a class="button button--ghost" href="./themes.html">Themes</a>
