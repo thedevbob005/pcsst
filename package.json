@@ -42,6 +42,7 @@
     "site": "python3 scripts/export_site.py",
     "package": "python3 scripts/package.py",
     "dev": "python3 scripts/dev.py",
-    "start": "python3 scripts/dev.py"
+    "start": "python3 scripts/dev.py",
+    "test": "pytest"
   }
 }
