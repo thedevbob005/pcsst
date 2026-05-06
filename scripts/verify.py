@@ -22,20 +22,23 @@ class ReferenceParser(HTMLParser):
         self.references: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag not in ("link", "script", "a"):
+            return
+
         attr_map = dict(attrs)
-        rel = attr_map.get("rel")
 
-        if tag == "link" and rel != "icon":
-            href = attr_map.get("href")
-            if href:
-                self.references.append(href)
+        if tag == "link":
+            if attr_map.get("rel") != "icon":
+                href = attr_map.get("href")
+                if href:
+                    self.references.append(href)
 
-        if tag == "script":
+        elif tag == "script":
             src = attr_map.get("src")
             if src:
                 self.references.append(src)
 
-        if tag == "a":
+        elif tag == "a":
             href = attr_map.get("href")
             if href and href.startswith("./"):
                 self.references.append(href)
