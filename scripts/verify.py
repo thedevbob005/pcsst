@@ -49,6 +49,7 @@ def verify_python() -> None:
 
 def verify_docs() -> None:
     issues: list[str] = []
+    checked_refs: dict[tuple[Path, str], bool] = {}
 
     for html_file in DOCS_DIR.glob("*.html"):
         parser = ReferenceParser()
@@ -61,8 +62,12 @@ def verify_docs() -> None:
             if not ref_path:
                 continue
 
-            target = (html_file.parent / ref_path).resolve()
-            if not target.exists():
+            cache_key = (html_file.parent, ref_path)
+            if cache_key not in checked_refs:
+                target = (html_file.parent / ref_path).resolve()
+                checked_refs[cache_key] = target.exists()
+
+            if not checked_refs[cache_key]:
                 issues.append(f"{html_file.name}: missing {ref_path}")
 
     if issues:
