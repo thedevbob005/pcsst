@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sys
 import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
@@ -50,7 +51,7 @@ def verify_python() -> None:
 
 
 def verify_tests() -> None:
-    subprocess.check_call(["pytest"])
+    subprocess.check_call([sys.executable, "-m", "pytest"])
 
 
 def verify_docs() -> None:
