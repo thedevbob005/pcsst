@@ -804,3 +804,34 @@
   .alert--danger { background: var(--pc-color-danger-soft); border-color: var(--pc-color-danger); color: var(--pc-color-danger); }
   .alert--warning { background: var(--pc-color-highlight-soft); border-color: var(--pc-color-highlight); color: var(--pc-color-highlight); }
   .alert--info { background: var(--pc-color-accent-soft); border-color: var(--pc-color-accent); color: var(--pc-color-accent); }
+
+
+  /* Further Component Variants */
+  .button--link {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--pc-color-accent);
+    padding: 0;
+    min-height: auto;
+  }
+
+  .button--link:hover {
+    text-decoration: underline;
+    transform: none;
+    box-shadow: none;
+    color: var(--pc-color-accent-strong);
+  }
+
+  .card--flat {
+    box-shadow: none;
+  }
+
+  .card--bordered {
+    border: 1px solid var(--pc-color-border-strong);
+  }
+
+  .badge--outline {
+    background: transparent;
+    border: 1px solid currentColor;
+  }
