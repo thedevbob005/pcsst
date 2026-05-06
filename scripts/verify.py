@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import sys
+import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -13,6 +15,7 @@ SCRIPT_FILES = [
     ROOT_DIR / "scripts" / "export_site.py",
     ROOT_DIR / "scripts" / "package.py",
     ROOT_DIR / "scripts" / "verify.py",
+    ROOT_DIR / "tests" / "test_package.py",
     ROOT_DIR / "tests" / "test_verify.py",
 ]
 
@@ -51,6 +54,10 @@ def verify_python() -> None:
         compile(source, str(script_file), "exec")
 
 
+def verify_tests() -> None:
+    subprocess.check_call([sys.executable, "-m", "pytest"])
+
+
 def verify_docs() -> None:
     issues: list[str] = []
     checked_refs: dict[tuple[Path, str], bool] = {}
@@ -81,10 +88,12 @@ def verify_docs() -> None:
 def main() -> None:
     build()
     verify_python()
+    verify_tests()
     verify_docs()
 
     print("Built framework assets")
     print("Verified Python scripts")
+    print("Verified Python tests")
     print("Verified documentation references")
 
 
