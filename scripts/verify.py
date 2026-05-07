@@ -3,7 +3,6 @@ from __future__ import annotations
 import sys
 import subprocess
 from html.parser import HTMLParser
-from pathlib import Path
 
 from build import ROOT_DIR, build
 
@@ -61,7 +60,7 @@ def verify_tests() -> None:
 
 def verify_docs() -> None:
     issues: list[str] = []
-    checked_refs: dict[tuple[Path, str], bool] = {}
+    checked_refs = {}
 
     for html_file in DOCS_DIR.glob("*.html"):
         parser = ReferenceParser()
