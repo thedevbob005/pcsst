@@ -59,7 +59,6 @@
     text-decoration: none;
   }
 
-
 }
 
 @layer tokens {
@@ -179,7 +178,6 @@
     --pc-shadow-lg: 0 1.6rem 4.4rem rgba(0, 0, 0, 0.4);
   }
 
-
 }
 
 @layer base {
@@ -269,7 +267,6 @@
     outline: 3px solid var(--pc-color-highlight);
     outline-offset: 2px;
   }
-
 
 }
 
@@ -5902,6 +5899,16 @@
 
   .is-valid {
     border-color: var(--pc-color-success) !important;
+  }
+
+  [data-pcsst-theme="midnight"] .button--primary,
+  [data-pcsst-theme="midnight"] .button--secondary,
+  [data-pcsst-theme="midnight"] .tab[aria-current="page"],
+  [data-pcsst-theme="midnight"] .tab.is-active,
+  [data-pcsst-theme="midnight"] .pill-nav__item[aria-current="page"],
+  [data-pcsst-theme="midnight"] .pill-nav__item.is-active,
+  [data-pcsst-theme="midnight"] .pagination__item.is-active {
+    color: var(--pc-color-page);
   }
 
   /* New Components */

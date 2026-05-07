@@ -179,6 +179,12 @@ body.docs-body {
   box-shadow: none;
 }
 
+.chip-row button[aria-pressed="true"] {
+  background: var(--pc-color-accent-soft);
+  border-color: var(--pc-color-accent);
+  color: var(--pc-color-accent);
+}
+
 .page-intro {
   display: grid;
   gap: var(--pc-space-4);

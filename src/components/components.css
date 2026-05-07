@@ -625,6 +625,16 @@
     border-color: var(--pc-color-success) !important;
   }
 
+  [data-pcsst-theme="midnight"] .button--primary,
+  [data-pcsst-theme="midnight"] .button--secondary,
+  [data-pcsst-theme="midnight"] .tab[aria-current="page"],
+  [data-pcsst-theme="midnight"] .tab.is-active,
+  [data-pcsst-theme="midnight"] .pill-nav__item[aria-current="page"],
+  [data-pcsst-theme="midnight"] .pill-nav__item.is-active,
+  [data-pcsst-theme="midnight"] .pagination__item.is-active {
+    color: var(--pc-color-page);
+  }
+
   /* New Components */
 
   /* Accordion */
