@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2025-05-14 - Accessible Feedback for Transient Actions
+**Learning:** Transient UI actions like "Copy to clipboard" require both visual and accessible confirmation. Using `aria-live="polite"` and updating `aria-label` ensures the success or failure is announced to screen readers. Managing timeouts properly prevents UI state desync during rapid interactions.
+**Action:** Always pair transient text changes with `aria-live` and updated `aria-label` attributes. Capture original UI state outside the interaction loop to ensure reliable restoration.
