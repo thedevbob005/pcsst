@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-05-09 - Screen Reader Feedback for Dynamic Counts
+**Learning:** Dynamic UI updates, such as search result counts, are often invisible to screen reader users unless an ARIA live region is used. Providing a "polite" announcement ensures the user is aware of the filtered state without interrupting their current task.
+**Action:** Always add `aria-live="polite"` to status text or counters that update based on user input or async events.
