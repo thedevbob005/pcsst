@@ -26,6 +26,10 @@ body.docs-body {
   transform: translateY(0);
 }
 
+[data-pcsst-theme="midnight"] .skip-link {
+  color: var(--pc-color-page);
+}
+
 .site-header {
   position: sticky;
   top: 0;

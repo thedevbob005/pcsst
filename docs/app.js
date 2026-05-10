@@ -153,6 +153,7 @@ function renderSearchResults(entries, query) {
     link.className = "button button--ghost";
     link.href = entry.url;
     link.textContent = "Open entry";
+    link.setAttribute("aria-label", `Open ${entry.title} entry`);
 
     card.append(badge, title, summary, link);
     searchResults.appendChild(card);
