@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-05-11 - Robust Feedback for Async Actions
+**Learning:** Temporary UI feedback for actions like "Copy to clipboard" can easily break if the user clicks multiple times or if the button contains nested HTML (like icons). Using a timeout tracking Map ensures that rapid clicks don't result in premature state restoration. Preserving `innerHTML` and `aria-label` instead of just `textContent` ensures that the button returns to its exact original visual and accessible state.
+**Action:** When implementing temporary success/error states, use a non-destructive restoration pattern that captures both visual (HTML) and accessible (ARIA) state, and manage timeouts centrally to handle race conditions.
