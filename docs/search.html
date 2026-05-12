@@ -73,9 +73,12 @@
               placeholder="Search PCSST docs"
               data-doc-search
               autocomplete="off"
+              aria-label="Search documentation"
             />
           </form>
-          <p class="annotation" data-search-count>Loading docs entries…</p>
+          <p class="annotation" data-search-count aria-live="polite">
+            Loading docs entries…
+          </p>
         </section>
 
         <section class="search-results" data-search-results></section>

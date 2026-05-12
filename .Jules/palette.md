@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-05-12 - Dynamic Search Accessibility
+**Learning:** Dynamic search interfaces require two critical accessibility anchors: an `aria-live` region for result counts so screen reader users hear updates immediately, and unique `aria-label` attributes for repetitive action links (like "Open entry") to provide context during navigation.
+**Action:** Always pair dynamic UI updates with polite ARIA live regions and ensure list actions are programmatically tied to their specific item labels.
