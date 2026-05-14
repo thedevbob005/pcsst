@@ -5,6 +5,7 @@ const navMenu = document.querySelector("[data-site-menu]");
 const searchInput = document.querySelector("[data-doc-search]");
 const searchResults = document.querySelector("[data-search-results]");
 const searchCount = document.querySelector("[data-search-count]");
+const copyTimeouts = new Map();
 
 function updateThemeButtons() {
   const activeTheme = root.dataset.pcsstTheme || "treasure";
@@ -46,24 +47,43 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalHTML = button.innerHTML;
+    const originalAria = button.getAttribute("aria-label");
+
     button.addEventListener("click", async () => {
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
 
       if (!block) {
         return;
       }
 
+      if (copyTimeouts.has(button)) {
+        window.clearTimeout(copyTimeouts.get(button));
+      }
+
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.classList.add("is-valid");
+        button.setAttribute("aria-label", "Copied to clipboard");
       } catch {
-        button.textContent = "Copy failed";
+        button.textContent = "Failed";
+        button.classList.add("is-invalid");
+        button.setAttribute("aria-label", "Copy failed");
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
-      }, 1400);
+      const timeout = window.setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.classList.remove("is-valid", "is-invalid");
+        if (originalAria) {
+          button.setAttribute("aria-label", originalAria);
+        } else {
+          button.removeAttribute("aria-label");
+        }
+        copyTimeouts.delete(button);
+      }, 2000);
+
+      copyTimeouts.set(button, timeout);
     });
   });
 }
