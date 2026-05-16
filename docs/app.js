@@ -44,26 +44,44 @@ function registerThemeSwitcher() {
   });
 }
 
+const copyTimeouts = new Map();
+
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalLabel = button.textContent;
+    const originalAria = button.getAttribute("aria-label");
+
     button.addEventListener("click", async () => {
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
 
       if (!block) {
         return;
       }
 
+      if (copyTimeouts.has(button)) {
+        window.clearTimeout(copyTimeouts.get(button));
+      }
+
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied");
       } catch {
         button.textContent = "Copy failed";
+        button.setAttribute("aria-label", "Copy failed");
       }
 
-      window.setTimeout(() => {
+      const timeoutId = window.setTimeout(() => {
         button.textContent = originalLabel;
+        if (originalAria) {
+          button.setAttribute("aria-label", originalAria);
+        } else {
+          button.removeAttribute("aria-label");
+        }
+        copyTimeouts.delete(button);
       }, 1400);
+
+      copyTimeouts.set(button, timeoutId);
     });
   });
 }
