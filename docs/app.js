@@ -44,26 +44,43 @@ function registerThemeSwitcher() {
   });
 }
 
+const copyTimeouts = new Map();
+
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalHTML = button.innerHTML;
+    const originalLabel = button.getAttribute("aria-label") || "Copy code to clipboard";
+
     button.addEventListener("click", async () => {
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
 
       if (!block) {
         return;
       }
 
+      if (copyTimeouts.has(button)) {
+        window.clearTimeout(copyTimeouts.get(button));
+      }
+
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
+        button.classList.add("is-valid");
       } catch {
-        button.textContent = "Copy failed";
+        button.textContent = "Error";
+        button.setAttribute("aria-label", "Copy failed");
+        button.classList.add("is-invalid");
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
-      }, 1400);
+      const timeout = window.setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.setAttribute("aria-label", originalLabel);
+        button.classList.remove("is-valid", "is-invalid");
+        copyTimeouts.delete(button);
+      }, 2000);
+
+      copyTimeouts.set(button, timeout);
     });
   });
 }
