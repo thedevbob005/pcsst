@@ -5,6 +5,7 @@ const navMenu = document.querySelector("[data-site-menu]");
 const searchInput = document.querySelector("[data-doc-search]");
 const searchResults = document.querySelector("[data-search-results]");
 const searchCount = document.querySelector("[data-search-count]");
+const copyTimeouts = new Map();
 
 function updateThemeButtons() {
   const activeTheme = root.dataset.pcsstTheme || "treasure";
@@ -48,22 +49,44 @@ function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
     button.addEventListener("click", async () => {
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+      if (!block) return;
 
-      if (!block) {
-        return;
+      if (copyTimeouts.has(button)) {
+        clearTimeout(copyTimeouts.get(button));
       }
+
+      const originalHTML = button.dataset.originalHtml || button.innerHTML;
+      const originalLabel =
+        button.dataset.originalLabel ||
+        button.getAttribute("aria-label") ||
+        "Copy code to clipboard";
+
+      if (!button.dataset.originalHtml) button.dataset.originalHtml = originalHTML;
+      if (!button.dataset.originalLabel) button.dataset.originalLabel = originalLabel;
 
       try {
         await navigator.clipboard.writeText(block.innerText);
-        button.textContent = "Copied";
+        button.innerHTML = "Copied!";
+        button.setAttribute("aria-label", "Copied to clipboard");
+        button.classList.add("is-valid");
+        button.classList.remove("is-invalid");
       } catch {
-        button.textContent = "Copy failed";
+        button.innerHTML = "Failed";
+        button.setAttribute("aria-label", "Copy failed");
+        button.classList.add("is-invalid");
+        button.classList.remove("is-valid");
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
-      }, 1400);
+      const timeoutId = window.setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.setAttribute("aria-label", originalLabel);
+        button.classList.remove("is-valid", "is-invalid");
+        copyTimeouts.delete(button);
+        delete button.dataset.originalHtml;
+        delete button.dataset.originalLabel;
+      }, 2000);
+
+      copyTimeouts.set(button, timeoutId);
     });
   });
 }
