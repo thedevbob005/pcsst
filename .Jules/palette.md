@@ -5,3 +5,11 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-05-20 - Preserving Documentation Code Formatting
+**Learning:** Running global formatters (like Prettier) on HTML files containing `<code>` blocks with significant whitespace can flatten snippets into unreadable strings. Documentation code examples must remain authored with intent.
+**Action:** Use targeted diffs or specific line formatting for documentation HTML instead of project-wide rewrites.
+
+## 2026-05-20 - Non-destructive Feedback States
+**Learning:** When providing temporary UI feedback (e.g., "Copied" on a button), using `innerHTML` restoration ensures that icons and nested structures are not lost. Using a `Map` to track timeouts prevents "flicker" or state abandonment during rapid interactions.
+**Action:** Always store and restore `innerHTML` and `aria-label` for transient button states.
