@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-05-25 - State Capture in Temporary UI Feedback
+**Learning:** When implementing temporary UI feedback (like "Copied" text on a button), capturing the "original" state (innerHTML, ARIA labels) must happen during component initialization or registration, NOT inside the event handler. Capturing inside the handler leads to race conditions where subsequent clicks during the feedback state capture the "Copied" text as the "original", causing the button to get stuck.
+**Action:** Always store baseline component states outside of async or transient event handlers to ensure non-destructive restoration.
