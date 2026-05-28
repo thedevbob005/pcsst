@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2025-05-14 - Robust Copy-to-Clipboard Feedback
+**Learning:** Temporary UI feedback (like a "Copied" state) can become stuck or inconsistent if the user interacts rapidly. Using a `Map` to track timeouts per element allows subsequent interactions to safely clear previous timers, ensuring the UI always restores to its original state correctly.
+**Action:** Use a `Map` for managing asynchronous UI feedback states to prevent race conditions during rapid user interactions.
