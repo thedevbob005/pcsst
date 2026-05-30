@@ -5,13 +5,14 @@ const navMenu = document.querySelector("[data-site-menu]");
 const searchInput = document.querySelector("[data-doc-search]");
 const searchResults = document.querySelector("[data-search-results]");
 const searchCount = document.querySelector("[data-search-count]");
+const copyTimeouts = new Map();
 
 function updateThemeButtons() {
   const activeTheme = root.dataset.pcsstTheme || "treasure";
   document.querySelectorAll("[data-theme-switch]").forEach((button) => {
     button.setAttribute(
       "aria-pressed",
-      button.dataset.themeSwitch === activeTheme ? "true" : "false"
+      button.dataset.themeSwitch === activeTheme ? "true" : "false",
     );
   });
 }
@@ -46,9 +47,16 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalHTML = button.innerHTML;
+    const originalAriaLabel =
+      button.getAttribute("aria-label") || "Copy code to clipboard";
+
     button.addEventListener("click", async () => {
+      if (copyTimeouts.has(button)) {
+        window.clearTimeout(copyTimeouts.get(button));
+      }
+
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
 
       if (!block) {
         return;
@@ -57,13 +65,19 @@ function registerCopyButtons() {
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
       } catch {
         button.textContent = "Copy failed";
+        button.setAttribute("aria-label", "Copy failed");
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
+      const timeout = window.setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.setAttribute("aria-label", originalAriaLabel);
+        copyTimeouts.delete(button);
       }, 1400);
+
+      copyTimeouts.set(button, timeout);
     });
   });
 }
@@ -176,14 +190,16 @@ async function setupSearch() {
     searchResults.innerHTML = "";
     const emptyState = document.createElement("article");
     emptyState.className = "search-empty";
-    emptyState.textContent = "The search index could not be loaded on this page.";
+    emptyState.textContent =
+      "The search index could not be loaded on this page.";
     searchResults.appendChild(emptyState);
   }
 }
 
 function registerSearchShortcut() {
   window.addEventListener("keydown", (event) => {
-    const isShortcut = event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
+    const isShortcut =
+      event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
     if (!isShortcut) {
       return;
     }
