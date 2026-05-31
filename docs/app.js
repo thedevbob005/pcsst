@@ -46,9 +46,11 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalHTML = button.innerHTML;
+    const originalAriaLabel = button.getAttribute("aria-label") || "";
+
     button.addEventListener("click", async () => {
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
 
       if (!block) {
         return;
@@ -57,12 +59,18 @@ function registerCopyButtons() {
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
       } catch {
         button.textContent = "Copy failed";
       }
 
       window.setTimeout(() => {
-        button.textContent = originalLabel;
+        button.innerHTML = originalHTML;
+        if (originalAriaLabel) {
+          button.setAttribute("aria-label", originalAriaLabel);
+        } else {
+          button.removeAttribute("aria-label");
+        }
       }, 1400);
     });
   });
