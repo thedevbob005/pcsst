@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2025-05-14 - Semantic Grouping for Theme Switchers
+**Learning:** Theme switchers in documentation often lack semantic grouping and descriptive labels for screen readers. Wrapping them in a container with `role="group"` and `aria-label="Theme selection"` provides critical context.
+**Action:** Ensure all multi-option toggle groups (like theme switchers) are semantically grouped and buttons have descriptive aria-labels that include the target state.
