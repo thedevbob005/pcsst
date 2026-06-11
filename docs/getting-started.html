@@ -65,7 +65,10 @@
           </div>
 
           <div class="showcase-grid">
-            <article class="command-card">
+            <article class="command-card relative">
+              <button class="button button--quiet copy-button" type="button" data-copy aria-label="Copy commands to clipboard">
+                Copy
+              </button>
               <div class="command-card__bar">
                 <strong>Framework commands</strong>
                 <span class="annotation">Local workflow</span>
@@ -150,7 +153,7 @@ python3 scripts/export_site.py</code>
               </div>
             </div>
             <div class="code-card">
-              <button class="button button--quiet copy-button" type="button" data-copy>
+              <button class="button button--quiet copy-button" type="button" data-copy aria-label="Copy code to clipboard">
                 Copy
               </button>
               <div class="code-block">
