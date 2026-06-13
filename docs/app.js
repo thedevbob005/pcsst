@@ -46,23 +46,34 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalHTML = button.innerHTML;
+    const originalLabel = button.getAttribute("aria-label") || "Copy to clipboard";
+    let timeout;
+
     button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+      const container = button.closest(".code-card, .command-card");
+      const block = container?.querySelector("code");
 
       if (!block) {
         return;
       }
 
+      window.clearTimeout(timeout);
+
       try {
         await navigator.clipboard.writeText(block.innerText);
-        button.textContent = "Copied";
+        button.innerHTML = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
+        button.classList.add("is-valid");
       } catch {
-        button.textContent = "Copy failed";
+        button.innerHTML = "Copy failed";
+        button.setAttribute("aria-label", "Copy failed");
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
+      timeout = window.setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.setAttribute("aria-label", originalLabel);
+        button.classList.remove("is-valid");
       }, 1400);
     });
   });

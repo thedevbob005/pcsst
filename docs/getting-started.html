@@ -68,7 +68,17 @@
             <article class="command-card">
               <div class="command-card__bar">
                 <strong>Framework commands</strong>
-                <span class="annotation">Local workflow</span>
+                <div class="cluster cluster-tight">
+                  <span class="annotation">Local workflow</span>
+                  <button
+                    class="button button--quiet button--sm"
+                    type="button"
+                    data-copy
+                    aria-label="Copy commands to clipboard"
+                  >
+                    Copy
+                  </button>
+                </div>
               </div>
               <div class="command-card__body">
                 <code>python3 scripts/build.py

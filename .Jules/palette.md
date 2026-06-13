@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-06-13 - Robust Micro-Feedback for Interactive Elements
+**Learning:** Micro-feedback interactions (like 'Copied' states) are prone to state regression if they capture the current DOM state within the click listener closure. If a user clicks rapidly, the 'feedback' state itself can be captured as the 'original' state, leading to broken UI after the timeout.
+**Action:** Always capture and store the "baseline" state (innerHTML, ARIA labels, classes) during component initialization or registration, outside of the event listener's scope.
