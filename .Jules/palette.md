@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2025-05-14 - Layout Preservation for UI Enhancements
+**Learning:** When adding elements (like a "Copy" button) to a flex container with `justify-between` (like `.command-card__bar`), existing items must be grouped in a sub-container (e.g., `.cluster`) to maintain their relative alignment while the new element is pushed to the far right.
+**Action:** Always inspect the parent's layout strategy before inserting new UI elements to prevent unintended spacing shifts.
