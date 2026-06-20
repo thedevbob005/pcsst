@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2025-05-08 - Non-Destructive UI Feedback
+**Learning:** When implementing temporary feedback in the documentation (e.g., 'Copied' state on a button), Palette uses a non-destructive pattern that stores and restores innerHTML (instead of textContent) and aria-label to preserve nested HTML icons and original accessibility labels.
+**Action:** Always capture the component's original state (innerHTML, aria-label) during initialization/registration outside of event listeners. This ensures subsequent rapid interactions restore the correct baseline rather than capturing the transient feedback state.
