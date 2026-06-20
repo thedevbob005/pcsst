@@ -223,8 +223,18 @@
 
           <article class="command-card">
             <div class="command-card__bar">
-              <strong>Release scripts</strong>
-              <span class="annotation">Zero-dependency local flow</span>
+              <div class="cluster cluster-tight">
+                <strong>Release scripts</strong>
+                <span class="annotation">Zero-dependency local flow</span>
+              </div>
+              <button
+                class="button button--quiet button--sm"
+                type="button"
+                data-copy
+                aria-label="Copy release scripts to clipboard"
+              >
+                Copy
+              </button>
             </div>
             <div class="command-card__body">
               <code>python3 scripts/build.py
