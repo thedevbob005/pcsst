@@ -17,7 +17,9 @@ jobs:
           python-version: "3.13"
         
       - name: Install dependencies
-        run: pip install pytest
+        run: |
+          pip install pytest pytest-playwright
+          playwright install chromium --with-deps
 
       - name: Verify PCSST
         run: python3 scripts/verify.py
