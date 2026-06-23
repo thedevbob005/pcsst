@@ -46,23 +46,34 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+    const originalLabel = button.textContent;
+    const originalAria = button.getAttribute("aria-label") || "Copy code to clipboard";
+    let timeoutId = null;
 
-      if (!block) {
-        return;
-      }
+    button.addEventListener("click", async () => {
+      const block =
+        button.closest(".code-card")?.querySelector("code") ||
+        button.closest(".command-card")?.querySelector("code");
+
+      if (!block) return;
+
+      if (timeoutId) clearTimeout(timeoutId);
 
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
+        button.classList.add("is-valid");
       } catch {
-        button.textContent = "Copy failed";
+        button.textContent = "Failed";
+        button.classList.add("is-invalid");
       }
 
-      window.setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         button.textContent = originalLabel;
+        button.setAttribute("aria-label", originalAria);
+        button.classList.remove("is-valid", "is-invalid");
+        timeoutId = null;
       }, 1400);
     });
   });
