@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-06-25 - Robust UI Feedback State Management
+**Learning:** Temporary UI states (like 'Copied' feedback) should use a non-destructive pattern that captures initial `innerHTML` and `aria-label` outside the event listener closure. This ensures icons and accessibility context are preserved. Clearing active timeouts on rapid interactions prevents race conditions and ensures the UI always restores to the correct baseline.
+**Action:** Use initialization-time state capture and `clearTimeout` for all components with transient feedback states.
