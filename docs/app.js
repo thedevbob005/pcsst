@@ -46,23 +46,42 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+    let timeoutId = null;
+    const originalHTML = button.innerHTML;
+    const originalAriaLabel = button.getAttribute("aria-label");
 
-      if (!block) {
-        return;
+    button.addEventListener("click", async () => {
+      const container = button.closest(".code-card, .command-card");
+      const block = container?.querySelector("code");
+
+      if (!block) return;
+
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
       }
 
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.classList.remove("is-invalid");
+        button.classList.add("is-valid");
+        button.setAttribute("aria-label", "Copied to clipboard");
       } catch {
         button.textContent = "Copy failed";
+        button.classList.remove("is-valid");
+        button.classList.add("is-invalid");
+        button.setAttribute("aria-label", "Copy failed");
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
+      timeoutId = window.setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.classList.remove("is-valid", "is-invalid");
+        if (originalAriaLabel) {
+          button.setAttribute("aria-label", originalAriaLabel);
+        } else {
+          button.removeAttribute("aria-label");
+        }
+        timeoutId = null;
       }, 1400);
     });
   });
