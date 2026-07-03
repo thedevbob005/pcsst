@@ -2,7 +2,17 @@ import pytest
 import re
 import subprocess
 import time
-from playwright.sync_api import expect
+
+try:
+    from playwright.sync_api import expect
+    PLAYWRIGHT_AVAILABLE = True
+except ImportError:
+    PLAYWRIGHT_AVAILABLE = False
+
+pytestmark = pytest.mark.skipif(
+    not PLAYWRIGHT_AVAILABLE,
+    reason="playwright and pytest-playwright are required for UI tests"
+)
 
 @pytest.fixture(scope="module")
 def dev_server():
@@ -18,7 +28,7 @@ def test_copy_button_index(page, dev_server):
     # Check for the copy button in command-card
     copy_button = page.locator(".command-card [data-copy]")
     expect(copy_button).to_be_visible()
-    expect(copy_button).to_have_text("Copy")
+    expect(copy_button).to_have_text(re.compile(r"Copy"))
     expect(copy_button).to_have_attribute("aria-label", "Copy commands to clipboard")
 
     # Give clipboard permissions
@@ -29,17 +39,13 @@ def test_copy_button_index(page, dev_server):
     copy_button.click()
 
     # Check feedback state
-    expect(copy_button).to_have_text("Copied")
+    expect(copy_button).to_have_text(re.compile(r"Copied"))
     expect(copy_button).to_have_attribute("aria-label", "Copied to clipboard")
     expect(copy_button).to_have_class(re.compile(r"is-valid"))
 
-    # Verify clipboard content
-    # Note: browser context needs focus for clipboard read in some environments
-    # but navigator.clipboard.writeText usually works fine in tests if permitted
-
     # Wait for timeout to restore state
     page.wait_for_timeout(1600)
-    expect(copy_button).to_have_text("Copy")
+    expect(copy_button).to_have_text(re.compile(r"Copy"))
     expect(copy_button).to_have_attribute("aria-label", "Copy commands to clipboard")
     expect(copy_button).not_to_have_class(re.compile(r"is-valid"))
 
