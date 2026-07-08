@@ -47,22 +47,34 @@ function registerThemeSwitcher() {
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
     button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+      const container = button.closest(".code-card") || button.closest(".command-card");
+      const block = container?.querySelector("code");
+      const originalLabel = button.innerHTML;
+      const originalAria = button.getAttribute("aria-label");
 
       if (!block) {
         return;
       }
 
       try {
-        await navigator.clipboard.writeText(block.innerText);
+        await navigator.clipboard.writeText(block.innerText.trim());
+        button.classList.add("is-valid");
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
       } catch {
+        button.classList.add("is-invalid");
         button.textContent = "Copy failed";
+        button.setAttribute("aria-label", "Copy failed");
       }
 
       window.setTimeout(() => {
-        button.textContent = originalLabel;
+        button.classList.remove("is-valid", "is-invalid");
+        button.innerHTML = originalLabel;
+        if (originalAria) {
+          button.setAttribute("aria-label", originalAria);
+        } else {
+          button.removeAttribute("aria-label");
+        }
       }, 1400);
     });
   });
