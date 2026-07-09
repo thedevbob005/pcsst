@@ -11,7 +11,7 @@ function updateThemeButtons() {
   document.querySelectorAll("[data-theme-switch]").forEach((button) => {
     button.setAttribute(
       "aria-pressed",
-      button.dataset.themeSwitch === activeTheme ? "true" : "false"
+      button.dataset.themeSwitch === activeTheme ? "true" : "false",
     );
   });
 }
@@ -46,23 +46,42 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
+    const originalText = button.textContent;
+    const originalAriaLabel = button.getAttribute("aria-label");
+    let timeout;
+
     button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+      const card = button.closest(".code-card, .command-card");
+      const block = card?.querySelector("code");
 
       if (!block) {
         return;
       }
 
-      try {
-        await navigator.clipboard.writeText(block.innerText);
-        button.textContent = "Copied";
-      } catch {
-        button.textContent = "Copy failed";
+      if (timeout) {
+        clearTimeout(timeout);
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
+      try {
+        await navigator.clipboard.writeText(block.innerText.trim());
+        button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
+        button.classList.add("is-valid");
+      } catch {
+        button.textContent = "Error";
+        button.setAttribute("aria-label", "Copy failed");
+        button.classList.add("is-invalid");
+      }
+
+      timeout = window.setTimeout(() => {
+        button.textContent = originalText;
+        if (originalAriaLabel) {
+          button.setAttribute("aria-label", originalAriaLabel);
+        } else {
+          button.removeAttribute("aria-label");
+        }
+        button.classList.remove("is-valid", "is-invalid");
+        timeout = null;
       }, 1400);
     });
   });
@@ -176,14 +195,16 @@ async function setupSearch() {
     searchResults.innerHTML = "";
     const emptyState = document.createElement("article");
     emptyState.className = "search-empty";
-    emptyState.textContent = "The search index could not be loaded on this page.";
+    emptyState.textContent =
+      "The search index could not be loaded on this page.";
     searchResults.appendChild(emptyState);
   }
 }
 
 function registerSearchShortcut() {
   window.addEventListener("keydown", (event) => {
-    const isShortcut = event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
+    const isShortcut =
+      event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
     if (!isShortcut) {
       return;
     }
