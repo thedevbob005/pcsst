@@ -139,10 +139,15 @@
           <article class="card section-card stack stack-4">
             <p class="eyebrow">Scoped theme usage</p>
             <h2>Apply themes to a subtree.</h2>
-            <div class="code-block">
-              <code>&lt;main data-pcsst-theme="midnight"&gt;
+            <div class="code-card">
+              <button class="button button--quiet copy-button" type="button" data-copy aria-label="Copy code to clipboard">
+                Copy
+              </button>
+              <div class="code-block">
+                <code>&lt;main data-pcsst-theme="midnight"&gt;
   &lt;div class="app-shell"&gt;...&lt;/div&gt;
 &lt;/main&gt;</code>
+              </div>
             </div>
             <p class="muted">
               Use this when one application area should diverge from the page
@@ -153,8 +158,12 @@
           <article class="card section-card stack stack-4">
             <p class="eyebrow">Custom theme authoring</p>
             <h2>Override tokens directly.</h2>
-            <div class="code-block">
-              <code>[data-pcsst-theme="orchid"] {
+            <div class="code-card">
+              <button class="button button--quiet copy-button" type="button" data-copy aria-label="Copy code to clipboard">
+                Copy
+              </button>
+              <div class="code-block">
+                <code>[data-pcsst-theme="orchid"] {
   --pc-color-page: #fcf6f7;
   --pc-color-panel: #fffdfd;
   --pc-color-ink: #2e2433;
@@ -162,6 +171,7 @@
   --pc-color-brand: #d56472;
   --pc-color-highlight: #c5a035;
 }</code>
+              </div>
             </div>
             <p class="muted">
               The framework components pick up the new voice automatically
