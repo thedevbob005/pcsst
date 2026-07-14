@@ -46,9 +46,9 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
-    const originalLabel = button.innerHTML;
-    const originalAria = button.getAttribute("aria-label");
-    let timeout;
+    const originalContent = button.innerHTML;
+    const originalLabel = button.getAttribute("aria-label");
+    let timeoutId = null;
 
     button.addEventListener("click", async () => {
       const container = button.closest(".code-card, .command-card");
@@ -56,7 +56,8 @@ function registerCopyButtons() {
 
       if (!block) return;
 
-      clearTimeout(timeout);
+      if (timeoutId) window.clearTimeout(timeoutId);
+
       try {
         await navigator.clipboard.writeText(block.innerText.trim());
         button.innerHTML = "Copied";
@@ -68,11 +69,15 @@ function registerCopyButtons() {
         button.setAttribute("aria-label", "Copy failed");
       }
 
-      timeout = window.setTimeout(() => {
-        button.innerHTML = originalLabel;
+      timeoutId = window.setTimeout(() => {
+        button.innerHTML = originalContent;
         button.classList.remove("is-valid", "is-invalid");
-        if (originalAria) button.setAttribute("aria-label", originalAria);
-        else button.removeAttribute("aria-label");
+        if (originalLabel) {
+          button.setAttribute("aria-label", originalLabel);
+        } else {
+          button.removeAttribute("aria-label");
+        }
+        timeoutId = null;
       }, 1400);
     });
   });
