@@ -303,6 +303,26 @@ body.docs-body {
   gap: var(--pc-space-4);
 }
 
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-input-with-shortcut {
+  padding-right: 4.5rem !important;
+}
+
+.search-shortcut-indicator {
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.75;
+  font-family: inherit;
+  font-size: 0.75rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 .search-results {
   display: grid;
   gap: var(--pc-space-4);
