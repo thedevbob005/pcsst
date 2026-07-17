@@ -200,6 +200,17 @@ function registerSearchShortcut() {
   });
 }
 
+function setupSearchShortcutIndicator() {
+  if (!searchInput) {
+    return;
+  }
+  const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  const indicator = document.querySelector(".search-shortcut-indicator");
+  if (indicator) {
+    indicator.textContent = isMac ? "⌘K" : "Ctrl+K";
+  }
+}
+
 applyStoredTheme();
 setCurrentNavLink();
 registerThemeSwitcher();
@@ -207,3 +218,4 @@ registerCopyButtons();
 registerNavToggle();
 registerSearchShortcut();
 setupSearch();
+setupSearchShortcutIndicator();
