@@ -5,7 +5,3 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
-
-## 2025-05-15 - State Persistence and Race Conditions in Clipboard Copy Buttons
-**Learning:** Copy buttons require both precise, accessible state announcements and robust asynchronous state tracking. When users rapidly click copy buttons, overlapping `setTimeout` calls can clear status feedback prematurely, causing confusing UI flashes. Managing previous timer state with `clearTimeout` ensures smooth, predictable feedback.
-**Action:** When creating interactive feedback states with async timers, always clear any existing timeout references before scheduling a new one, and reset visual classes cleanly.
