@@ -182,6 +182,13 @@ async function setupSearch() {
 }
 
 function registerSearchShortcut() {
+  const shortcutIndicator = document.querySelector("[data-search-shortcut-indicator]");
+  if (shortcutIndicator) {
+    const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform || navigator.userAgentData?.platform || "");
+    shortcutIndicator.textContent = isMac ? "⌘K" : "Ctrl+K";
+    shortcutIndicator.style.display = "inline-flex";
+  }
+
   window.addEventListener("keydown", (event) => {
     const isShortcut = event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
     if (!isShortcut) {

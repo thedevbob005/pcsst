@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-07-22 - Visual Discovery of Keyboard Shortcuts
+**Learning:** Keyboard shortcuts significantly boost user productivity, but they are often hidden features that users never discover. Providing platform-aware visual hints (like Ctrl+K on Windows/Linux or ⌘K on Mac/iOS) right next to the interactive label increases visual discovery of shortcuts while preserving high context readability.
+**Action:** When implementing key-bound interactions, always include a platform-aware styled shortcut indicator (e.g., using a small badge with the appropriate key symbols) near the associated input or button.
