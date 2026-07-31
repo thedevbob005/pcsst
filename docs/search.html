@@ -66,14 +66,17 @@
 
           <form class="field" role="search">
             <label class="label" for="doc-search">Docs query</label>
-            <input
-              id="doc-search"
-              class="input"
-              type="search"
-              placeholder="Search PCSST docs"
-              data-doc-search
-              autocomplete="off"
-            />
+            <div class="relative">
+              <input
+                id="doc-search"
+                class="input search-input-with-shortcut"
+                type="search"
+                placeholder="Search PCSST docs"
+                data-doc-search
+                autocomplete="off"
+              />
+              <kbd class="badge badge--sm absolute search-shortcut-indicator pointer-events-none" data-search-shortcut></kbd>
+            </div>
           </form>
           <p class="annotation" data-search-count>Loading docs entries…</p>
         </section>
