@@ -182,6 +182,12 @@ async function setupSearch() {
 }
 
 function registerSearchShortcut() {
+  const shortcutIndicator = document.querySelector("[data-search-shortcut]");
+  if (shortcutIndicator) {
+    const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+    shortcutIndicator.textContent = isMac ? "⌘K" : "Ctrl+K";
+  }
+
   window.addEventListener("keydown", (event) => {
     const isShortcut = event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
     if (!isShortcut) {
