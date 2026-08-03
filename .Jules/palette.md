@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-08-03 - Race-free Feedback for Ephemeral Action Buttons
+**Learning:** Ephemeral state buttons (like a copy-to-clipboard button) require robust, race-free state management to prevent incorrect label restorations during rapid, repeated user clicks. Resolving timeout timers via stored listener references protects UI stability. Pairing dynamic `aria-label` announcements with existing design-system success indicators (like `.is-valid`) creates an exceptionally delightful and accessible user confirmation.
+**Action:** Always capture initial text/accessibility states outside of the interaction closure, clear overlapping execution timeouts, and apply unified design system status styles for stateful micro-interactions.
