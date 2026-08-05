@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-08-05 - Multi-Container Clipboard Interactions
+**Learning:** Designing copy-to-clipboard interactions that scale across multiple container components (e.g. `.code-card` and `.command-card`) requires dynamic sibling/parent query strategies and strict input sanitization (.trim()). Clearing active timeouts prevents animation or feedback state race conditions during rapid, repetitive clicks.
+**Action:** Store initial component states outside click listeners and systematically cancel any pending timeouts prior to executing visual state transitions.
