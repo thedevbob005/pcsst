@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-08-07 - Non-destructive Accessible Copy Buttons in Headers
+**Learning:** Integrating copy utilities into component headers (like .command-card__bar) requires careful flexbox grouping to maintain visual alignment. Wrapping adjacent header text in a `div.cluster.cluster-tight` ensures the copy button is pushed correctly to the far right. Standardizing `aria-label` context ("Copy commands..." vs "Copy code...") also significantly improves screen-reader clarity.
+**Action:** Always group header elements cleanly when inserting new interactive controls, and tailor the ARIA label's context based on the content type of the target container.
