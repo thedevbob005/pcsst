@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-08-08 - Platform-Aware Search Shortcut Indicators
+**Learning:** Adding a platform-aware keyboard shortcut indicator (like `⌘K` on macOS/iOS and `Ctrl+K` on Windows/Linux) inside search fields significantly boosts power-user efficiency, while hiding it from screen readers via `aria-hidden="true"` prevents redundant and confusing auditory announcements.
+**Action:** When designing global search inputs, use platform-specific symbols/text dynamically set via script, and ensure the element is marked `aria-hidden="true"` so it remains a visual-only affordance.

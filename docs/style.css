@@ -491,3 +491,29 @@ body.docs-body {
     position: static;
   }
 }
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input-container .input {
+  padding-right: 3.5rem;
+}
+
+.search-shortcut {
+  position: absolute;
+  right: 0.75rem;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--pc-color-border);
+  border-radius: var(--pc-radius-sm);
+  background: var(--pc-color-panel-strong);
+  color: var(--pc-color-muted);
+  font-family: var(--pc-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
