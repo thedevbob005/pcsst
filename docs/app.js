@@ -48,7 +48,8 @@ function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
     button.addEventListener("click", async () => {
       const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+      const originalText = button.textContent;
+      const originalAriaLabel = button.getAttribute("aria-label");
 
       if (!block) {
         return;
@@ -57,12 +58,19 @@ function registerCopyButtons() {
       try {
         await navigator.clipboard.writeText(block.innerText);
         button.textContent = "Copied";
+        button.setAttribute("aria-label", "Copied to clipboard");
       } catch {
         button.textContent = "Copy failed";
+        button.setAttribute("aria-label", "Copy failed");
       }
 
       window.setTimeout(() => {
-        button.textContent = originalLabel;
+        button.textContent = originalText;
+        if (originalAriaLabel) {
+          button.setAttribute("aria-label", originalAriaLabel);
+        } else {
+          button.removeAttribute("aria-label");
+        }
       }, 1400);
     });
   });
