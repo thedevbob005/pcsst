@@ -5,7 +5,3 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
-
-## 2026-08-20 - Escape Key Keyboard Dismissal for Mobile Menus
-**Learning:** Disclosure-based mobile navigation menus that toggle via click must support closing via the `Escape` key and returning focus to the trigger element for WCAG 2.1 SC 2.1.1 compliance.
-**Action:** Always attach an `Escape` key listener when registering toggle-based navigation overlays, setting `aria-expanded="false"` and focusing the toggle element.
