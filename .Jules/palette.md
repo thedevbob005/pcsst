@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-08-23 - Keyboard Dismissal for Mobile Navigation
+**Learning:** Mobile disclosure menus must support `Escape` key dismissal and explicitly return keyboard focus to the triggering element to prevent keyboard navigation focus loss.
+**Action:** Always bind an `Escape` key listener when toggling disclosure menus open and explicitly call `.focus()` on the toggle button upon closing.
