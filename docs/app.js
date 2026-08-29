@@ -168,17 +168,6 @@ async function setupSearch() {
       renderSearchResults(entries, nextQuery);
     });
 
-    searchInput.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        if (searchInput.value) {
-          searchInput.value = "";
-          searchInput.dispatchEvent(new Event("input"));
-        } else {
-          searchInput.blur();
-        }
-      }
-    });
-
     if (!initialQuery) {
       searchInput.focus();
     }
