@@ -153,8 +153,7 @@ async function setupSearch() {
     searchInput.value = initialQuery;
     renderSearchResults(entries, initialQuery);
 
-    searchInput.addEventListener("input", () => {
-      const nextQuery = searchInput.value;
+    const updateSearch = (nextQuery) => {
       const nextParams = new URLSearchParams(window.location.search);
 
       if (nextQuery) {
@@ -166,6 +165,21 @@ async function setupSearch() {
       const nextUrl = `${window.location.pathname}${nextParams.toString() ? `?${nextParams.toString()}` : ""}`;
       window.history.replaceState({}, "", nextUrl);
       renderSearchResults(entries, nextQuery);
+    };
+
+    searchInput.addEventListener("input", () => {
+      updateSearch(searchInput.value);
+    });
+
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        if (searchInput.value) {
+          searchInput.value = "";
+          updateSearch("");
+        } else {
+          searchInput.blur();
+        }
+      }
     });
 
     if (!initialQuery) {
