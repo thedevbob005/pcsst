@@ -200,10 +200,37 @@ function registerSearchShortcut() {
   });
 }
 
+function registerEscapeHandler() {
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    if (navMenu && navMenu.classList.contains("is-open")) {
+      navMenu.classList.remove("is-open");
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.focus();
+      }
+      return;
+    }
+
+    if (searchInput && document.activeElement === searchInput) {
+      if (searchInput.value) {
+        searchInput.value = "";
+        searchInput.dispatchEvent(new Event("input", { bubbles: true }));
+      } else {
+        searchInput.blur();
+      }
+    }
+  });
+}
+
 applyStoredTheme();
 setCurrentNavLink();
 registerThemeSwitcher();
 registerCopyButtons();
 registerNavToggle();
 registerSearchShortcut();
+registerEscapeHandler();
 setupSearch();
