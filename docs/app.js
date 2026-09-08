@@ -46,23 +46,51 @@ function registerThemeSwitcher() {
 
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
-      const originalLabel = button.textContent;
+    const originalText = button.innerHTML;
+    const originalAriaLabel = button.getAttribute("aria-label");
+    let timeoutId = null;
 
+    button.addEventListener("click", async () => {
+      const block = (
+        button.closest(".code-card") || button.closest(".command-card")
+      )?.querySelector("code");
       if (!block) {
         return;
       }
 
-      try {
-        await navigator.clipboard.writeText(block.innerText);
-        button.textContent = "Copied";
-      } catch {
-        button.textContent = "Copy failed";
+      if (timeoutId) {
+        clearTimeout(timeoutId);
       }
 
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
+      const textToCopy = (block.textContent || block.innerText || "").trim();
+      let success = false;
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        success = true;
+      } catch {
+        success = false;
+      }
+
+      if (success) {
+        button.textContent = "Copied";
+        button.classList.add("is-valid");
+        button.classList.remove("is-invalid");
+        button.setAttribute("aria-label", "Copied to clipboard");
+      } else {
+        button.textContent = "Copy failed";
+        button.classList.add("is-invalid");
+        button.classList.remove("is-valid");
+        button.setAttribute("aria-label", "Copy failed");
+      }
+
+      timeoutId = window.setTimeout(() => {
+        button.innerHTML = originalText;
+        button.classList.remove("is-valid", "is-invalid");
+        if (originalAriaLabel !== null) {
+          button.setAttribute("aria-label", originalAriaLabel);
+        } else {
+          button.removeAttribute("aria-label");
+        }
       }, 1400);
     });
   });
