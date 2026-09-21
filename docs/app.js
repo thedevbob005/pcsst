@@ -73,25 +73,16 @@ function registerNavToggle() {
     return;
   }
 
-  const closeNav = () => {
-    navMenu.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  };
-
   navToggle.addEventListener("click", () => {
     const isOpen = navMenu.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
   navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeNav);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
-      closeNav();
-      navToggle.focus();
-    }
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
   });
 }
 
