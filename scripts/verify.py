@@ -17,6 +17,7 @@ SCRIPT_FILES = [
     ROOT_DIR / "tests" / "test_build.py",
     ROOT_DIR / "tests" / "test_package.py",
     ROOT_DIR / "tests" / "test_verify.py",
+    ROOT_DIR / "tests" / "test_ui_palette.py",
 ]
 
 
