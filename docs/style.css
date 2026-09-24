@@ -392,6 +392,10 @@ body.docs-body {
   z-index: 2;
 }
 
+.command-card__bar .copy-button {
+  position: static;
+}
+
 .showcase-stack {
   display: grid;
   gap: var(--pc-space-6);
