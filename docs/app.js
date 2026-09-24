@@ -47,7 +47,7 @@ function registerThemeSwitcher() {
 function registerCopyButtons() {
   document.querySelectorAll("[data-copy]").forEach((button) => {
     button.addEventListener("click", async () => {
-      const block = button.closest(".code-card")?.querySelector("code");
+      const block = button.closest(".code-card, .command-card")?.querySelector("code");
       const originalLabel = button.textContent;
 
       if (!block) {
