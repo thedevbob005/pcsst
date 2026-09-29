@@ -84,6 +84,14 @@ function registerNavToggle() {
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
+      navMenu.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.focus();
+    }
+  });
 }
 
 function renderSearchResults(entries, query) {
