@@ -49,3 +49,7 @@ def test_reference_parser_mixed():
     assert "./about.html" in parser.references
     assert "http://google.com" not in parser.references
     assert len(parser.references) == 3
+
+def test_search_input_aria_keyshortcuts():
+    search_html = (Path(__file__).resolve().parent.parent / "docs" / "search.html").read_text(encoding="utf-8")
+    assert 'aria-keyshortcuts="Control+k Meta+k"' in search_html
