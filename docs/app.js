@@ -84,14 +84,6 @@ function registerNavToggle() {
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
-      navMenu.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.focus();
-    }
-  });
 }
 
 function renderSearchResults(entries, query) {
@@ -174,18 +166,6 @@ async function setupSearch() {
       const nextUrl = `${window.location.pathname}${nextParams.toString() ? `?${nextParams.toString()}` : ""}`;
       window.history.replaceState({}, "", nextUrl);
       renderSearchResults(entries, nextQuery);
-    });
-
-    searchInput.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        if (searchInput.value) {
-          searchInput.value = "";
-          renderSearchResults(entries, "");
-          window.history.replaceState({}, "", window.location.pathname);
-        } else {
-          searchInput.blur();
-        }
-      }
     });
 
     if (!initialQuery) {
