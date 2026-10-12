@@ -49,3 +49,9 @@ def test_reference_parser_mixed():
     assert "./about.html" in parser.references
     assert "http://google.com" not in parser.references
     assert len(parser.references) == 3
+
+def test_app_js_nav_toggle_escape_listener():
+    app_js_path = Path(__file__).resolve().parent.parent / "docs" / "app.js"
+    content = app_js_path.read_text(encoding="utf-8")
+    assert 'event.key === "Escape"' in content
+    assert 'navMenu.classList.contains("is-open")' in content
