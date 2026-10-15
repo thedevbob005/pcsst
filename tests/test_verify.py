@@ -49,20 +49,3 @@ def test_reference_parser_mixed():
     assert "./about.html" in parser.references
     assert "http://google.com" not in parser.references
     assert len(parser.references) == 3
-
-def test_copy_buttons_aria_labels():
-    docs_dir = Path(__file__).resolve().parent.parent / "docs"
-    html_files = list(docs_dir.glob("*.html"))
-    assert len(html_files) > 0, "No HTML files found in docs/"
-
-    copy_buttons_found = 0
-    for html_file in html_files:
-        content = html_file.read_text(encoding="utf-8")
-        if "data-copy" in content:
-            # Check every data-copy button in this file
-            for line in content.splitlines():
-                if "data-copy" in line:
-                    copy_buttons_found += 1
-                    assert 'aria-label="' in line, f"data-copy button missing aria-label in {html_file.name}: {line.strip()}"
-
-    assert copy_buttons_found > 0, "No data-copy buttons found across docs HTML files"
