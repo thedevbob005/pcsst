@@ -168,6 +168,21 @@ async function setupSearch() {
       renderSearchResults(entries, nextQuery);
     });
 
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        if (searchInput.value) {
+          searchInput.value = "";
+          const nextParams = new URLSearchParams(window.location.search);
+          nextParams.delete("q");
+          const nextUrl = `${window.location.pathname}${nextParams.toString() ? `?${nextParams.toString()}` : ""}`;
+          window.history.replaceState({}, "", nextUrl);
+          renderSearchResults(entries, "");
+        } else {
+          searchInput.blur();
+        }
+      }
+    });
+
     if (!initialQuery) {
       searchInput.focus();
     }
