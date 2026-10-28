@@ -183,6 +183,17 @@ async function setupSearch() {
 
 function registerSearchShortcut() {
   window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && searchInput && document.activeElement === searchInput) {
+      if (searchInput.value) {
+        searchInput.value = "";
+        searchInput.dispatchEvent(new Event("input", { bubbles: true }));
+        event.preventDefault();
+      } else {
+        searchInput.blur();
+      }
+      return;
+    }
+
     const isShortcut = event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
     if (!isShortcut) {
       return;
