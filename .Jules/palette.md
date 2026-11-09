@@ -5,3 +5,7 @@
 ## 2025-05-07 - Visual Feedback for Toggle Buttons
 **Learning:** Buttons that act as state toggles (like a theme switcher) need clear visual differentiation beyond just ARIA attributes. Users rely on visual cues to understand the current system state.
 **Action:** Style `aria-pressed="true"` states with distinct backgrounds or borders that match the system's active state patterns.
+
+## 2026-09-23 - Focus Restoration on Navigation Overlay Close
+**Learning:** When closing flyout navigation menus via the Escape key, explicitly restoring focus to the menu toggle button (`navToggle.focus()`) and updating `aria-expanded="false"` prevents focus loss and ensures seamless keyboard navigation.
+**Action:** Always return keyboard focus to the trigger element when closing overlays or disclosure menus via keyboard shortcuts.
